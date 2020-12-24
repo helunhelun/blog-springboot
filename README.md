@@ -60,5 +60,14 @@ server.tomcat.threads.max=200
 
 <p style="font-size:20px;">填写相关的用户信息（邮箱， 用户名，昵称， 密码等等）， 成功之后访问http://localhost:8000/login 网址登陆， 在博客后台创建相关的文章分类与标签， 最少写四篇文章，然后提交</p>
 
+## 5、我的网站
+
+<p style="font-size:20px;">、具体运行效果可以查看我的网站: <a href="https://www.ivdone.cn">https://www.ivdone.cn</a></p>
+
+<p style="font-size:20px;">部分运行界面</p>
+
+
+
+
 
 
