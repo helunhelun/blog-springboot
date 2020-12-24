@@ -1,0 +1,351 @@
+
+<!doctype html>
+<html lang="en-US" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta content=”text/html; charset=utf-8″>
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <!-- 子模块title -->
+    <div layout:fragment="title">
+    </div>
+    <!-- All In One SEO Pack 3.5.2[211,282] -->
+    <!-- All In One SEO Pack -->
+    <!-- <link th:href="@{/theme/css/code.css}" rel="stylesheet"> -->
+    <link rel="shortcut icon" th:href="@{/static/favicon.ico}" />
+    <link rel="stylesheet" id="wp-block-library-css" th:href="@{/static/theme/css/style.min.css}" type="text/css" media="all">
+    <link rel="stylesheet" id="wp-block-library-theme-css" th:href="@{/static/theme/css/theme.min.css}" type="text/css" media="all">
+    <link rel="stylesheet" id="dashicons-css" th:href="@{/static/theme/css/dashicons.min.css}" type="text/css" media="all">
+    <link rel="stylesheet" id="post-views-counter-frontend-css" th:href="@{/static/theme/css/frontend.css}" type="text/css" media="all">
+    <link rel="stylesheet" id="toc-screen-css" th:href="@{/static/theme/css/screen.min.css}" type="text/css" media="all">
+    <link rel="stylesheet" id="Katex-css" th:href="@{/static/theme/css/katex.min.css}" type="text/css" media="all">
+    <link rel="stylesheet" id="Emojify.js-css" th:href="@{/static/theme/css/emojify.min.css}" type="text/css" media="all">
+    <link rel="stylesheet" id="prism-theme-default-css" th:href="@{/static/theme/css/prism.css}" type="text/css" media="all">
+    <link rel="stylesheet" id="prism-toolbar-css" th:href="@{/static/theme/css/prism-toolbar.css}" type="text/css" media="all">
+    <link rel="stylesheet" id="prism-plugin-line-numbers-css" th:href="@{/static/theme/css/prism-line-numbers.css}" type="text/css" media="all">
+    <link rel="stylesheet" id="wp-ulike-css" th:href="@{/static/theme/css/wp-ulike.min.css}" type="text/css" media="all">
+    <link rel="stylesheet" id="font-awesome-css" th:href="@{/static/theme/css/font-awesome.min.css}" type="text/css" media="all">
+    <link rel="stylesheet" id="slick-css-css" th:href="@{/static/theme/css/slick.css}" type="text/css" media="all">
+    <link rel="stylesheet" id="slick-theme-css-css" th:href="@{/static/theme/css/slick-theme.css}" type="text/css" media="all">
+    <link rel="stylesheet" id="refined-magazine-style-css" th:href="@{/static/theme/css/style.css}" type="text/css" media="all">
+    <link rel='stylesheet' id='google-fonts-css'  href='//fonts.googleapis.com/css?family=Slabo+27px%7CMuli&#038;display=swap&#038;ver=5.4' type='text/css' media='all' />
+    <!-- <link th:href="@{/static/theme/css/isso.css}" rel="stylesheet"> -->
+
+    <!-- 子模块css部分 -->
+    <div layout:fragment="css">
+
+    </div>
+
+    <style id="refined-magazine-style-inline-css" type="text/css">
+        .site-branding h1, .site-branding p.site-title,.ct-dark-mode .site-title a, .site-title, .site-title a, .site-title a:hover, .site-title a:visited:hover { color: #ffffff; }.entry-content a, .entry-title a:hover, .related-title a:hover, .posts-navigation .nav-previous a:hover, .post-navigation .nav-previous a:hover, .posts-navigation .nav-next a:hover, .post-navigation .nav-next a:hover, #comments .comment-content a:hover, #comments .comment-author a:hover, .offcanvas-menu nav ul.top-menu li a:hover, .offcanvas-menu nav ul.top-menu li.current-menu-item > a, .error-404-title, #refined-magazine-breadcrumbs a:hover, .entry-content a.read-more-text:hover, a:hover, a:visited:hover, .widget_refined_magazine_category_tabbed_widget.widget ul.ct-nav-tabs li a  { color : #0d19a3; }.candid-refined-post-format, .refined-magazine-featured-block .refined-magazine-col-2 .candid-refined-post-format, .cat-links a,.top-bar,.main-navigation ul li a:hover, .main-navigation ul li.current-menu-item > a, .main-navigation ul li a:hover, .main-navigation ul li.current-menu-item > a, .trending-title, .search-form input[type=submit], input[type="submit"], ::selection, #toTop, .breadcrumbs span.breadcrumb, article.sticky .refined-magazine-content-container, .candid-pagination .page-numbers.current, .candid-pagination .page-numbers:hover, .ct-title-head, .widget-title:before, .widget ul.ct-nav-tabs:before, .widget ul.ct-nav-tabs li.ct-title-head:hover, .widget ul.ct-nav-tabs li.ct-title-head.ui-tabs-active { background-color : #0d19a3; }.candid-refined-post-format, .refined-magazine-featured-block .refined-magazine-col-2 .candid-refined-post-format, blockquote, .search-form input[type="submit"], input[type="submit"], .candid-pagination .page-numbers { border-color : #0d19a3; }.ct-post-overlay .post-content, .ct-post-overlay .post-content a, .widget .ct-post-overlay .post-content a, .widget .ct-post-overlay .post-content a:visited, .ct-post-overlay .post-content a:visited:hover, .slide-details:hover .cat-links a { color: #fff; }.logo-wrapper-block{background-color : #4240ed; }@media (min-width: 1600px){.ct-boxed #page{max-width : 1500px; }}
+    </style>
+    <!--
+      <script type="text/javascript" src="{% static 'theme-2/js/jquery.js' %}"></script> -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/static/theme/js/jquery-migrate.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/theme/js/joomsport_live.js}"></script>
+
+    <style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+    <style type="text/css">
+        .site-title a, .site-title{
+            color: #ffffff;
+        }
+    </style>
+    <style type="text/css" id="custom-background-css">
+        body.custom-background { background-color: #fafafa; }
+    </style>
+</head>
+<body class="post-template-default single single-post postid-1098 single-format-standard custom-background wp-embed-responsive ct-bg ct-boxed ct-sticky-sidebar right-sidebar" itemtype="https://schema.org/Blog" itemscope>
+<div id="page" class="site">
+    <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+    <!-- Preloader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <header id="masthead" class="site-header" itemtype="https://schema.org/WPHeader" itemscope>
+        <div class="overlay"></div>
+        <div class="top-bar">
+            <a href="#" class="ct-show-hide-top"> <i class="fa fa-chevron-down"></i> </a>
+            <div class="container-inner clearfix">
+                <div class="top-left-col clearfix">
+                    <div class="ct-clock float-left">
+                        <div id="ct-date">
+                        </div>
+                    </div>
+                </div>
+                <div class="top-right-col clearfix">
+                </div>
+                <!-- .top-right-col -->
+            </div>
+            <!-- .container-inner -->
+        </div>
+        <!-- .top-bar  导航栏上面部分 的图片描述 -->
+        <div class="logo-wrapper-block" style="background-image: url(/static/theme/images/default-header-image.jpeg);">
+            <div class="container-inner clearfix logo-wrapper-container">
+                <div class="logo-wrapper full-wrapper text-center">
+                    <div class="site-branding">
+                        <div class="refined-magazine-logo-container">
+                            <p class="site-title"><a href="/" rel="home">网站标题 &amp; 网站描述</a></p>
+                            <p class="site-description">爱游泳，爱学习，爱编程
+                                熟悉使用python，Java程序语言
+                                没事的时候喜欢看看书
+                                和朋友聊聊天</p>
+                        </div>
+                        <!-- refined-magazine-logo-container -->
+                    </div>
+                    <!-- .site-branding -->
+                </div>
+                <!-- .logo-wrapper -->
+            </div>
+            <!-- .container-inner -->
+        </div>
+        <!-- .top-bar  导航栏上面部分 的图片描述 结束 -->
+        <!-- .菜单导航栏 -->
+        <div class="refined-magazine-menu-container sticky-header">
+            <div class="container-inner clearfix">
+                <nav id="site-navigation" class="main-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope>
+                    <div class="navbar-header clearfix">
+                        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"> <span> </span> </button>
+                    </div>
+                    <ul id="primary-menu" class="nav navbar-nav nav-menu">
+                        <li class=""><a href="/"> <i class="fa fa-home"></i> </a></li>
+                        <li id="menu-item-2076" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-2076"><a href="/">首页</a></li>
+                        <li id="menu-item-2040" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-2040"><a href="/">编程技术</a>
+                            <ul class="sub-menu">
+                                <li id="menu-item-2041" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2041"><a href="/category/C++" data-lang="zh">C/C++</a></li>
+                                <li id="menu-item-2042" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2042"><a href="/category/Python" data-lang="zh">Python </a></li>
+                                <li id="menu-item-2043" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2043"><a href="/category/Django" data-lang="zh">Django </a></li>
+                                <li id="menu-item-2044" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2044"><a href="/category/javascript" data-lang="zh">js</a></li>
+                            </ul> </li>
+                        <li id="menu-item-2051" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2051"><a href="/archives" data-lang="zh">归档</a></li>
+                        <li id="menu-item-2051" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2051"><a href="/wp-admin/ArticleCreate" data-lang="zh">写文章</a></li>
+                        <li id="menu-item-2069" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2069"><a href="/login"  data-lang="zh">登录</a></li>
+                        <!-- <li id="menu-item-2070" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2069"><a href="/register" data-lang="zh">注册</a></li> -->
+                    </ul>
+                </nav>
+                <!-- # 搜索的图标 -->
+                <div class="ct-menu-search">
+                    <a class="search-icon-box" href="#"> <i class="fa fa-search"></i> </a>
+                </div>
+                <div class="top-bar-search">
+                    <form role="search" method="get" class="search-form" action="/search">
+                        <label> <span class="screen-reader-text">Search for:</span> <input type="search" class="search-field" placeholder="Search …" value="" name="s"> </label>
+                        <input type="submit" class="search-submit" value="Search">
+                    </form>
+                    <button type="button" class="close"></button>
+                </div>
+            </div>
+            <!-- .container-inner -->
+        </div>
+        <!-- refined-magazine-menu-container -->
+    </header>
+    <!-- 子模块 index 主要用于主页 -->
+    <div layout:fragment="index">
+    </div>
+    <!-- #masthead -->
+    <div id="content" class="site-content">
+        <div class="container-inner ct-container-main clearfix">
+            <!-- 子模块内容部分 -->
+            <div id="primary" class="content-area" layout:fragment="content">
+
+            </div>
+            <!-- #primary  侧边部分 -->
+            <aside id="secondary" class="widget-area" itemtype="https://schema.org/WPSideBar" itemscope>
+                <div class="ct-sidebar-wrapper">
+                    <!-- 联系人部分  -->
+                    <div class="sidebar-widget-container">
+                        <section id="text-7" class="widget widget_text">
+
+                            <h2 class="widget-title">联系方式</h2>
+                            <div class="textwidget">
+
+                                <p>【QQ】626086048<br> 【Github】<a href="https://github.com/helunhelun/" target="_blank" rel="noopener noreferrer">我的githup</a><br> 【Email】<a href="mailto:626086048@qq.com" target="_blank" rel="noopener noreferrer">626086048@qq.com</a></p>
+
+                            </div>
+                        </section>
+                    </div>
+                    <!-- 联系人部分 结束 -->
+
+                    <!-- 搜索部分 -->
+                    <div class="sidebar-widget-container">
+                        <section id="search-5" class="widget widget_search">
+                            <form role="search" method="get" class="search-form" action="/search">
+                                <label> <span class="screen-reader-text">Search for:</span> <input type="search" class="search-field" placeholder="站内搜索 …" value="" name="s"> </label>
+                                <input type="submit" class="search-submit" value="搜索">
+                            </form>
+                        </section>
+                    </div>
+                    <!-- 搜索部分结束 -->
+
+                    <!-- 热门文章  -->
+                    <div class="sidebar-widget-container">
+                        <section id="post_views_counter_list_widget-6" class="widget widget_post_views_counter_list_widget">
+                            <h2 class="widget-title">热门文章</h2>
+                            <ol>
+                                <li th:each="article:${articlesMostView.getContent()}"> <a class="post-title" th:href="'/article/'+ ${article.getPost_id()} +'.html'" th:text="${article.getTitle()}"></a> <span class="count" th:text="'(' + ${article.getViews()} + ')'"></span> </li>
+                            </ol>
+                        </section>
+                    </div>
+
+                    <!-- 最新文章  -->
+                    <div class="sidebar-widget-container">
+                        <section id="recent-posts-11" class="widget widget_recent_entries">
+                            <h2 class="widget-title">最新文章</h2>
+                            <ul>
+
+                                <li th:each="article:${articlesNew.getContent()}"> <a th:href="'/article/'+ ${article.getPost_id()} +'.html'" th:text="${article.getTitle()}"></a> </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <!-- 文章分类 -->
+                    <div class="sidebar-widget-container">
+                        <section id="meta-6" class="widget widget_meta">
+                            <h2 class="widget-title">文章分类</h2>
+                            <ul>
+                                <li th:each="category:${categoryList}"><a th:href="'/category/'+ ${category.getName()}" th:text="${category.getName()}"></a></li>
+                            </ul>
+                        </section>
+                    </div>
+                    <!-- 文章分类 结束 -->
+
+                    <!-- 标签云开始 -->
+                    <div class="sidebar-widget-container">
+                        <section id="tag_cloud-2" class="widget widget_tag_cloud">
+                            <h2 class="widget-title">标签云</h2>
+                            <div class="tagcloud">
+                                <a th:each="tag:${tagList}" th:href="'/tag/'+ ${tag.getName()}" class="tag-cloud-link tag-link-46 tag-link-position-1" style="font-size: 12px;" th:text="${tag.getName()}"></a>
+                            </div>
+                        </section>
+                    </div>
+                    <!-- 标签云结束 -->
+                </div>
+            </aside>
+            <!-- #secondary -->
+        </div>
+        <!-- .container-inner -->
+    </div>
+    <!-- #content -->
+    <footer id="colophon" class="site-footer">
+        <div class="site-info" itemtype="https://schema.org/WPFooter" itemscope>
+            <div class="container-inner">
+                <span class="copy-right-text">Copyright © 2020 网站版权 &amp; 网站版权描述 <a href="http://www.miitbeian.gov.cn/" target="_blank">津ICP备00000001号</a> & <a target="_blank" href="/mysitemap.xml">网站地图</a></span>
+                <br>
+                <a href="https://spring.io/projects/spring-boot" target="_blank"> Proudly powered by SpringBoot in Java  </a>
+                <span class="sep"> | </span> Theme: Refined Magazine by
+                <a href="https://www.candidthemes.com/" target="_blank">Candid Themes</a>.
+            </div>
+            <!-- .container-inner -->
+        </div>
+        <!-- .site-info -->
+    </footer>
+    <!-- #colophon  向上的图片-->
+    <a id="toTop" class="go-to-top" href="#" title="Go to Top"> <i class="fa fa-angle-double-up"></i> </a>
+</div>
+<!-- #page -->
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"Auto"};
+    /* ]]> */
+</script>
+<script type="text/javascript" th:src="@{/static/theme/js/front.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/katex.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/emojify.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/clipboard.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/prism-core.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/prism-autoloader.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/prism-toolbar.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/prism-line-numbers.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/prism-show-language.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/prism-copy-to-clipboard.min.js}"></script>
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var wp_ulike_params = {"ajax_url":"https:\/\/www.ivdone.top\/wordpress\/wp-admin\/admin-ajax.php","notifications":"1"};
+    /* ]]> */
+</script>
+<script type="text/javascript" th:src="@{/static/theme/js/wp-ulike.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/slick.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/core.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/widget.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/tabs.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/navigation.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/jquery.marquee.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/skip-link-focus-fix.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/theia-sticky-sidebar.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/comment-reply.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/refined-magazine-custom.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/wp-embed.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/wp-embed.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/theme/js/mainapp.js}"></script>
+<script type="text/javascript">
+    (function ($) {
+        $(document).ready(function () {
+            $(".katex.math.inline").each(function () {
+                var parent = $(this).parent()[0];
+                if (parent.localName !== "code") {
+                    var texTxt = $(this).text();
+                    var el = $(this).get(0);
+                    try {
+                        katex.render(texTxt, el);
+                    } catch (err) {
+                        $(this).html("<span class=\"err\">" + err);
+                    }
+                } else {
+                    $(this).parent().text($(this).parent().text());
+                }
+            });
+            $(".katex.math.multi-line").each(function () {
+                var texTxt = $(this).text();
+                var el = $(this).get(0);
+                try {
+                    katex.render(texTxt, el, {displayMode: true})
+                } catch (err) {
+                    $(this).html("<span class=\"err\">" + err)
+                }
+            });
+        })
+    })(jQuery);
+</script>
+<script>
+    $(document).ready(function (){
+        Date.prototype.Format = function (fmt) { //author: meizz
+            var o = {
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "h+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds(), //秒
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                "S": this.getMilliseconds() //毫秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+        var date=new Date();
+        var curDate = JSON.stringify(date.Format("yyyy年MM月dd日"))
+        $("#ct-date").text(curDate)
+    });
+</script>
+<script type="text/javascript">
+    window.onload = function () {
+        emojify.setConfig({
+            img_dir: "https://cdn.jsdelivr.net/wp/wp-editormd/tags/10.1.2/assets/Emojify.js/images/basic",//前端emoji资源地址
+            blacklist: {
+                "ids": [],
+                "classes": ["no-emojify"],
+                "elements": ["^script$", "^textarea$", "^pre$", "^code$"]
+            }
+        });
+        emojify.run();
+    }
+</script>
+<script type="text/javascript">
+    Prism.plugins.autoloader.languages_path = "https://cdn.jsdelivr.net/wp/wp-editormd/tags/10.1.2/assets/Prism.js/components/";
+</script>
+<!-- 子模块js部分 -->
+<div layout:fragment="js">
+
+</div>
+</body>
+</html>

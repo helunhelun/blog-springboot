@@ -1,0 +1,106 @@
+<html lang="en" layout:decorator="blog/base" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<div layout:fragment="title">
+    <title th:text="${s} + '的搜索结果 | 学习是一种信仰'"> </title>
+</div>
+
+<div id="primary" class="content-area" layout:fragment="content">
+    <main id="main" class="site-main">
+        <!-- 导航版 -->
+        <div class="breadcrumbs">
+            <div class="breadcrumbs init-animate clearfix">
+                <span class="breadcrumb">You are Here</span>
+                <div id="refined-magazine-breadcrumbs" class="clearfix">
+                    <div role="navigation" aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs" itemprop="breadcrumb">
+                        <ul class="trail-items" itemscope itemtype="http://schema.org/BreadcrumbList">
+                            <meta name="numberOfItems" content="2">
+                            <meta name="itemListOrder" content="Ascending">
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="trail-item trail-begin"><a href="/" rel="home"><span itemprop="name">Home</span></a>
+                                <meta itemprop="position" content="1"></li>
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="trail-item trail-end"><span itemprop="name" > 搜索结果 </span>
+                                <meta itemprop="position" content="2"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="page-header">
+            <h1 class="page-title" th:text="'Search:' + ${s} + '(' + ${articlesPage.getTotalElements()} + ')'"> </h1>
+        </header><!-- .page-header -->
+        <!-- 文章分页 -->
+        <div class="refined-news-article-wrapper ct-post-list clearfix">
+            <article th:each="article:${articlesPage.getContent()}" id="post-2079"
+                     class="post-2079 post type-post status-publish format-standard hentry category-dl-rl category-papers"
+                     style="padding:1px; margin:1px;" itemtype="https://schema.org/CreativeWork" itemscope>
+                <div class="refined-magazine-content-container refined-magazine-no-thumbnail"
+                     style="padding: 2px; padding: 2px;">
+                    <div class="refined-magazine-content-area" style="margin: 0px; padding:0px">
+                        <header class="entry-header" style="margin: 2px; padding:0px">
+                            <div class="post-meta" style="margin-top: 2px;">
+                                    <span class="cat-links"><a class="ct-cat-item-53"
+                                                               th:href="'/category/'+ ${article.getCategory().getName()}"
+                                                               th:text="${article.getCategory().getName()}"
+                                                               rel="category tag"></a> </span>
+                            </div>
+                            <h2 class="entry-title" itemprop="headline"><a
+                                    th:href="'/article/'+ ${article.getPost_id()} +'.html'"
+                                    th:text="${article.getTitle()}" rel="bookmark"></a></h2>
+                            <div class="entry-meta">
+                                    <span class="posted-on"><i class="fa fa-calendar"></i><a
+                                            th:href="'/article/'+ ${article.getPost_id()} +'.html'" rel="bookmark"><time
+                                            class="entry-date published" th:datetime="${article.getDate()}"
+                                            th:text="${article.getDate()}" itemprop="datePublished"></time><time
+                                            class="updated" th:datetime="${article.getDate()}" itemprop="dateModified"
+                                            th:text="${article.getDate()}"></time></a></span>
+                                <!-- <span class="min-read"><i class="fa fa-clock-o" aria-hidden="true"></i>1 min read</span> -->
+
+                                <span class="byline"> <span class="author vcard" itemprop="author"
+                                                            itemtype="https://schema.org/Person" itemscope><i
+                                        class="fa fa-user"></i><a class="url fn n"
+                                                                  th:href="'/author/'+ ${article.getUser().getNickname()}"
+                                                                  rel="author"><span class="author-name" itemprop="name"
+                                                                                     th:text="${article.getUser().getNickname()}"></span></a></span></span>
+                                <a th:href="'/category/'+ ${article.getCategory().getName()}"> <span><i
+                                        class="my-fa fa fa-book ml-2" aria-hidden="true"
+                                        th:text="'&nbsp;'+ ${article.getCategory().getName()}"></i></span> </a>
+                                <a th:href="'/tag/' + ${article.getTag().getName()}"> <span><i
+                                        class="my-fa fa fa-tags ml-2" aria-hidden="true"
+                                        th:text="'&nbsp;'+ ${article.getTag().getName()}"></i></span> </a>
+                                <span><a th:href="'/wp-admin/modify/'+ ${article.getPost_id()} +'.html'">编辑</a></span>
+                            </div>
+                        </header>
+                        <!-- 文章图片 -->
+                        <div class="entry-content" style="margin: 0em; padding:0em;">
+                            <div>
+                                <img th:if="${article.getImageLibrary() != null}"
+                                     th:src="${article.getImageLibrary().getUrl()}" style="width: 30%; float:right;">
+                                <span style="margin-left: 20px; font-size: 20px;"
+                                      th:text="${article.getSummary()}"></span>
+                            </div>
+                            <p><a th:href="'/article/'+ ${article.getPost_id()} +'.html'" class="read-more-text">Read
+                                More </a></p>
+                        </div>
+                    </div>
+            </article>
+        </div>
+        <!--  分页  -->
+        <div class="candid-pagination" th:if="${articlesPage.getTotalElements() > 0}">
+            <a class="next page-numbers" th:href="'/search/?s='+ ${s}">首页</a>
+            <a class="next page-numbers" th:unless="${articlesPage.hasPrevious()}" th:href="'/search/?s=' + ${s} +'&page=0'">上一页</a>
+            <a class="next page-numbers" th:if="${articlesPage.hasPrevious()}"
+               th:href="'/search/?s='+ ${s} + '&page=' + ${articlesPage.previousPageable().getPageNumber()}">上一页</a>
+            <a class="page-numbers current" th:href="'/search/?s=' + ${s} + '&page=' + ${articlesPage.getPageable().getPageNumber()}"
+               th:text="${articlesPage.getPageable().getPageNumber()+1}"></a>
+            <span class="page-numbers dots">/</span>
+            <a class="page-numbers" th:href="'/search/?s='+ ${s} + '&page=' + ${articlesPage.getTotalPages()-1}"
+               th:text="${articlesPage.getTotalPages()}"></a>
+
+            <a class="next page-numbers" th:unless="${articlesPage.hasNext()}"
+               th:href="'/search/?s='+ ${s} + '&page=' + ${articlesPage.getTotalPages()-1}">下一页</a>
+            <a class="next page-numbers" th:if="${articlesPage.hasNext()}"
+               th:href="'/search/?s='+ ${s} + '&page=' + ${articlesPage.nextPageable().getPageNumber()}">下一页</a>
+            <a class="next page-numbers" th:href="'/search/?s='+ ${s} + '&page=' + ${articlesPage.getTotalPages()-1}">末页</a>
+        </div>
+    </main>
+</div>
+</html>

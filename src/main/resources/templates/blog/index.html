@@ -1,0 +1,251 @@
+<html lang="en" layout:decorator="blog/base" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<!-- 子模块title -->
+<div layout:fragment="title">
+<title>学习是一种信仰</title>
+</div>
+<!-- 导航页 用于主页 -->
+<!-- 子模块 index 主要用于主页 -->
+<div layout:fragment="index">
+    <!-- #masthead -->
+    <div class="trending-wrapper">
+        <strong class="trending-title"> Trending News </strong>
+        <div class="trending-content trending-left">
+
+            <a th:each="article:${articlesNew.getContent()}" th:href="'/article/'+ ${article.getPost_id()} +'.html'"
+               th:title="${article.getTitle()}" th:text="${article.getTitle()}"> <span class="img-marq"> </span></a>
+        </div>
+    </div>
+    <!-- .top-right-col -->
+    <div class="refined-magazine-featured-block refined-magazine-ct-row clearfix" style="margin-left: 20px;">
+        <!-- 左边部分  -->
+        <div class="refined-magazine-col">
+            <ul class="ct-post-carousel slider hover-prev-next" data-slick="[]">
+                <li>
+                    <div class="featured-section-inner ct-post-overlay">
+                        <div class="post-thumb">
+                            <a href="/category/Linux"> <img src="/static/theme/images/linux.jpg" alt="Linux学习之路"> </a>
+                        </div>
+                        <div class="featured-section-details post-content">
+                            <h3 class="post-title"><a href="/category/Linux">Linux学习之路</a></h3>
+                            <div class="post-meta">
+                                <span class="byline"> <span class="author vcard" itemprop="author"
+                                                            itemtype="https://schema.org/Person" itemscope><i
+                                        class="fa fa-user"></i><a class="url fn n" href="/author/花梓"
+                                                                  rel="author"><span class="author-name"
+                                                                                     itemprop="name">花梓</span></a></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .featured-section-inner -->
+                </li>
+                <li>
+                    <div class="featured-section-inner ct-post-overlay">
+                        <div class="post-thumb">
+                            <a href="/category/django"> <img src="/static/theme/images/django.jpg" alt="Django让web更简单"> </a>
+                        </div>
+                        <div class="featured-section-details post-content">
+                            <h3 class="post-title"><a href="/category/django">Django让web更简单</a></h3>
+                            <div class="post-meta">
+                                <span class="byline"> <span class="author vcard" itemprop="author"
+                                                            itemtype="https://schema.org/Person" itemscope><i
+                                        class="fa fa-user"></i><a class="url fn n" href="/author/花梓"
+                                                                  rel="author"><span class="author-name"
+                                                                                     itemprop="name">花梓</span></a></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="featured-section-inner ct-post-overlay">
+                        <div class="post-thumb">
+                            <a href="/category/python"> <img src="/static/theme/images/python.jpg" alt="Python让编程更简单"> </a>
+                        </div>
+                        <div class="featured-section-details post-content">
+                            <h3 class="post-title"><a href="/category/python">Python让编程更简单</a></h3>
+                            <div class="post-meta">
+                                <span class="byline"> <span class="author vcard" itemprop="author"
+                                                            itemtype="https://schema.org/Person" itemscope><i
+                                        class="fa fa-user"></i><a class="url fn n" href="/author/花梓"
+                                                                  rel="author"><span class="author-name"
+                                                                                     itemprop="name">花梓</span></a></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="featured-section-inner ct-post-overlay">
+                        <div class="post-thumb">
+                            <a href="/category/javascript"> <img src="/static/theme/images/js.jpg" alt="高效前端开发语言javascript">
+                            </a>
+                        </div>
+                        <div class="featured-section-details post-content">
+                            <h3 class="post-title"><a href="/category/javascript">高效前端开发语言javascript</a></h3>
+                            <div class="post-meta">
+                                <span class="byline"> <span class="author vcard" itemprop="author"
+                                                            itemtype="https://schema.org/Person" itemscope><i
+                                        class="fa fa-user"></i><a class="url fn n" href="/author/花梓"
+                                                                  rel="author"><span class="author-name"
+                                                                                     itemprop="name">花梓</span></a></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- 右边部分  -->
+        <div class="refined-magazine-col refined-magazine-col-2">
+            <div class="refined-magazine-inner-row clearfix">
+                <!-- 最火的文章 -->
+                <div class="refined-magazine-col refined-magazine-col-full">
+                    <div class="featured-section-inner ct-post-overlay">
+                        <div class="post-thumb">
+                            <a th:href="'/article/'+ ${articlesMostView.getContent().get(0).getPost_id()} +'.html'"> <img src="/static/theme/images/fire.jpg"
+                                                                                            style="width: 100%; height:200px;"
+                                                                                            th:alt="${articlesMostView.getContent().get(0).getTitle()}">
+                            </a>
+                        </div>
+                        <div class="featured-section-details post-content">
+                            <div class="post-meta">
+                                <span class="cat-links"><a class="ct-cat-item-53"
+                                                           th:href="'/category/'+ ${articlesMostView.getContent().get(0).getCategory().getName()}"
+                                                           rel="category tag" th:text="${articlesMostView.getContent().get(0).getCategory().getName()}"></a> </span>
+                            </div>
+                            <h3 class="post-title"><a th:href="'/article/'+ ${articlesMostView.getContent().get(0).getPost_id()} +'.html'" th:text="${articlesMostView.getContent().get(0).getTitle()}"></a></h3>
+                            <div class="post-meta">
+                                <span class="posted-on"><i class="fa fa-calendar"></i><a
+                                        th:href="'/article/'+ ${articlesMostView.getContent().get(0).getPost_id()} +'.html'" rel="bookmark"><time
+                                        class="entry-date published"
+                                        th:datetime="${articlesMostView.getContent().get(0).getDate()}"
+                                        itemprop="datePublished" th:text="${articlesMostView.getContent().get(0).getDate()}"></time><time
+                                        class="updated" th:datetime="${articlesMostView.getContent().get(0).getDate()}"
+                                        itemprop="dateModified" th:text="${articlesMostView.getContent().get(0).getDate()}"></time></a></span>
+                                <span class="byline"> <span class="author vcard" itemprop="author"
+                                                            itemtype="https://schema.org/Person" itemscope><i
+                                        class="fa fa-user"></i><a class="url fn n"
+                                                                  th:href="'/author/'+${articlesMostView.getContent().get(0).getUser().getNickname()}"
+                                                                  rel="author"><span class="author-name"
+                                                                                     itemprop="name" th:text="${articlesMostView.getContent().get(0).getUser().getNickname()}"></span></a></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 随机的两篇文章 -->
+                <div class="refined-magazine-col "  th:each="article:${randomArticles.subList(0,2)}">
+                    <div class="featured-section-inner ct-post-overlay">
+                        <div class="post-thumb">
+                            <a th:href="'/article/'+ ${article.getPost_id()} +'.html'"> <img
+                                    src="/static/theme/images/new.jpeg" style="width: 100%;height:210px;"
+                                    alt="dddd"> </a>
+                        </div>
+                        <div class="featured-section-details post-content">
+                            <div class="post-meta">
+                                <span class="cat-links"><a class="ct-cat-item-1"
+                                                           th:href="'/category/'+ ${article.getCategory().getName()}"
+                                                           rel="category tag" th:text="${article.getCategory().getName()}"> </a> </span>
+                            </div>
+                            <h3 class="post-title"><a th:href="'/article/'+ ${article.getPost_id()} +'.html'" th:text="${article.getTitle()}"> </a></h3>
+                            <div class="post-meta">
+                                <span class="posted-on"><i class="fa fa-calendar"></i><a
+                                        th:href="'/article/'+ ${article.getPost_id()} +'.html'" rel="bookmark"><time
+                                        class="entry-date published"
+                                        th:datetime="${article.getDate()}"
+                                        itemprop="datePublished" th:text="${article.getDate()}"> </time><time
+                                        class="updated" datetime="{{ new_articles.0.publish_time | date:'Y-m-d' }}"
+                                        itemprop="dateModified" th:text="${article.getDate()}"> </time></a></span>
+                                <span class="byline"> <span class="author vcard" itemprop="author"
+                                                            itemtype="https://schema.org/Person" itemscope><i
+                                        class="fa fa-user"></i><a class="url fn n"
+                                                                  th:href="'/author/'+ ${article.getUser().getNickname()}"
+                                                                  rel="author"><span class="author-name"
+                                                                                     itemprop="name" th:text="${article.getUser().getNickname()}"> </span></a></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--.refined-magazine-col-->
+        </div>
+    </div>
+    <!--.refined-magazine-col-->
+</div>
+
+<div id="primary" class="content-area" layout:fragment="content">
+    <main id="main" class="site-main">
+        <div class="refined-news-article-wrapper ct-post-list clearfix">
+            <article th:each="article:${articlesPage.getContent()}" id="post-2079"
+                     class="post-2079 post type-post status-publish format-standard hentry category-dl-rl category-papers"
+                     style="padding:1px; margin:1px;" itemtype="https://schema.org/CreativeWork" itemscope>
+                <div class="refined-magazine-content-container refined-magazine-no-thumbnail"
+                     style="padding: 2px; padding: 2px;">
+                    <div class="refined-magazine-content-area" style="margin: 0px; padding:0px">
+                        <header class="entry-header" style="margin: 2px; padding:0px">
+                            <div class="post-meta" style="margin-top: 2px;">
+                                    <span class="cat-links"><a class="ct-cat-item-53"
+                                                               th:href="'/category/'+ ${article.getCategory().getName()}"
+                                                               th:text="${article.getCategory().getName()}"
+                                                               rel="category tag"></a> </span>
+                            </div>
+                            <h2 class="entry-title" itemprop="headline"><a
+                                    th:href="'/article/'+ ${article.getPost_id()} +'.html'"
+                                    th:text="${article.getTitle()}" rel="bookmark"></a></h2>
+                            <div class="entry-meta">
+                                    <span class="posted-on"><i class="fa fa-calendar"></i><a
+                                            th:href="'/article/'+ ${article.getPost_id()} +'.html'" rel="bookmark"><time
+                                            class="entry-date published" th:datetime="${article.getDate()}"
+                                            th:text="${article.getDate()}" itemprop="datePublished"></time><time
+                                            class="updated" th:datetime="${article.getDate()}" itemprop="dateModified"
+                                            th:text="${article.getDate()}"></time></a></span>
+                                <!-- <span class="min-read"><i class="fa fa-clock-o" aria-hidden="true"></i>1 min read</span> -->
+
+                                <span class="byline"> <span class="author vcard" itemprop="author"
+                                                            itemtype="https://schema.org/Person" itemscope><i
+                                        class="fa fa-user"></i><a class="url fn n"
+                                                                  th:href="'/author/'+ ${article.getUser().getNickname()}"
+                                                                  rel="author"><span class="author-name" itemprop="name"
+                                                                                     th:text="${article.getUser().getNickname()}"></span></a></span></span>
+                                <a th:href="'/category/'+ ${article.getCategory().getName()}"> <span><i
+                                        class="my-fa fa fa-book ml-2" aria-hidden="true"
+                                        th:text="'&nbsp;'+ ${article.getCategory().getName()}"></i></span> </a>
+                                <a th:href="'/tag/' + ${article.getTag().getName()}"> <span><i
+                                        class="my-fa fa fa-tags ml-2" aria-hidden="true"
+                                        th:text="'&nbsp;'+ ${article.getTag().getName()}"></i></span> </a>
+                                <span><a th:href="'/wp-admin/modify/'+ ${article.getPost_id()} +'.html'">编辑</a></span>
+                            </div>
+                        </header>
+                        <!-- 文章图片 -->
+                        <div class="entry-content" style="margin: 0em; padding:0em;">
+                            <div>
+                                <img th:if="${article.getImageLibrary() != null}"
+                                     th:src="${article.getImageLibrary().getUrl()}" style="width: 30%; float:right;">
+                                <span style="margin-left: 20px; font-size: 20px;"
+                                      th:text="${article.getSummary()}"></span>
+                            </div>
+                            <p><a th:href="'/article/'+ ${article.getPost_id()} +'.html'" class="read-more-text">Read
+                                More </a></p>
+                        </div>
+                    </div>
+            </article>
+        </div>
+        <!--  分页  -->
+        <div class="candid-pagination">
+            <a class="next page-numbers" href="/index/page/0">首页</a>
+            <a class="next page-numbers" th:unless="${articlesPage.hasPrevious()}" href="/index/page/0">上一页</a>
+            <a class="next page-numbers" th:if="${articlesPage.hasPrevious()}"
+               th:href="'/index/page/'+ ${articlesPage.previousPageable().getPageNumber()}">上一页</a>
+            <a class="page-numbers current" th:href="'/index/page/' + ${articlesPage.getPageable().getPageNumber()}"
+               th:text="${articlesPage.getPageable().getPageNumber()+1}"></a>
+            <span class="page-numbers dots">/</span>
+            <a class="page-numbers" th:href="'/index/page/' + ${articlesPage.getTotalPages()-1}"
+               th:text="${articlesPage.getTotalPages()}"></a>
+
+            <a class="next page-numbers" th:unless="${articlesPage.hasNext()}"
+               th:href="'/index/page/' + ${articlesPage.getTotalPages()-1}">下一页</a>
+            <a class="next page-numbers" th:if="${articlesPage.hasNext()}"
+               th:href="'/index/page/' + ${articlesPage.nextPageable().getPageNumber()}">下一页</a>
+            <a class="next page-numbers" th:href="'/index/page/' + ${articlesPage.getTotalPages()-1}">末页</a>
+        </div>
+    </main>
+</div>
+</html>

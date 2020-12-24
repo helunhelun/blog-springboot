@@ -1,0 +1,58 @@
+{
+    "header": [
+        " *   ",
+        " *   文件描述：本文件为请求参数，包括不限于网址、请求头、响应头、COOKIE、Referer、UserAgent",
+        " *   本文件仅为记录详细请求参数便于调试，非专业人员可将本文件删除",
+        " *   详细介绍请参考: https://bazhan.me/faq",
+        " *   "
+    ],
+    "directory": "www-ivdone-top-pdo1lf2t",
+    "options": {
+        "url": "https://www.ivdone.top/article/1098.html",
+        "index": "index.html",
+        "domain": "www.ivdone.top",
+        "ipaddress": "117.78.10.237",
+        "filenameGenerator": "byType",
+        "request": {
+            "headers": {
+                "accept": "text/html,*/*",
+                "accept-language": "zh-CN,zh;q=0.9",
+                "accept-encoding": "gzip",
+                "cache-control": "no-cache",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36",
+                "x-scraper-website": "https://bazhan.me/",
+                "cookie": "PHPSESSID=jtc2rgdvrp7se11mtmjkutsjs2; pvc_visits[0]=1600411561b1098"
+            }
+        },
+        "response": {
+            "statusCode": 200,
+            "headers": {
+                "server": "nginx/1.19.2",
+                "date": "Thu, 17 Sep 2020 06:46:02 GMT",
+                "content-type": "text/html; charset=UTF-8",
+                "transfer-encoding": "chunked",
+                "connection": "close",
+                "x-powered-by": "PHP/7.4.4",
+                "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+                "cache-control": "no-store, no-cache, must-revalidate",
+                "pragma": "no-cache",
+                "x-pingback": "https://www.ivdone.top/wordpress/xmlrpc.php",
+                "set-cookie": [
+                    "pvc_visits[0]=1600411561b1098; expires=Fri, 18-Sep-2020 06:46:01 GMT; Max-Age=86399; path=/; secure; HttpOnly"
+                ],
+                "link": "<https://www.ivdone.top/wp-json/>; rel=\"https://api.w.org/\", <https://www.ivdone.top/?p=1098>; rel=shortlink"
+            }
+        }
+    },
+    "user": {
+        "isWhite": false
+    },
+    "formatter": [
+        "saveOriginal"
+    ],
+    "time": {
+        "start": 1600325160897,
+        "end": 1600325194150,
+        "spend": "33.253s"
+    }
+}

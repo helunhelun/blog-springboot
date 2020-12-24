@@ -1,0 +1,23 @@
+
+.widget {
+    border-bottom: 1px dotted #253944;
+        border-bottom-color: rgb(37, 57, 68);
+        border-bottom-style: dotted;
+        border-bottom-width: 1px;
+        padding-bottom: 10px;
+        position: relative;
+        overflow: visible;
+        margin: 0 0 15px 0;
+        font-family: Merriweather, 冬青黑体简体中文, "Microsoft YaHei", 微软雅黑, SimSun, 宋体, Heiti, 黑体, droid_sansregular, arial, serif;
+    
+}
+
+.widget-title {
+    color: #6b5d38;
+    font-size: 26px;
+    line-height: 30px;
+    border-left: rgb(55, 55, 55) solid thick;
+    padding: 10px 0px 10px 10px;
+    width: 100%;
+    float: left;
+}

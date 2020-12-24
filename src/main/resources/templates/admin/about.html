@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" layout:decorator="admin/base" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<div layout:fragment="title">
+    <title>关于我</title>
+</div>
+
+<div class="container" layout:fragment="content">
+    <h2 style="text-align: center;color:red;">欢迎<span style="color: blue;" th:text="${user.getNickname()}"></span>来到本网站博客后台管理系统</h2>
+    <div class="row">
+        <table class="table table-bordered table-dark">
+            <thead>
+            <tr>
+                <th scope="col">标签</th>
+                <th scope="col">内容</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">用户名</th>
+                <td th:text="${user.getUsername()}"></td>
+            </tr>
+            <tr>
+                <th scope="row">昵称</th>
+                <td th:text="${user.getNickname()}"></td>
+            </tr>
+            <tr>
+                <th scope="row">邮箱</th>
+                <td th:text="${user.getEmail()}"></td>
+            </tr>
+            <tr>
+                <th scope="row">文章数量</th>
+                <td th:text="${totalArticleCount}"></td>
+            </tr>
+            <tr>
+                <th scope="row">公开文章</th>
+                <td th:text="${publicArticleCount}"></td>
+            </tr>
+            <tr>
+                <th scope="row">草稿文章</th>
+                <td th:text="${draftArticleCount}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</html>

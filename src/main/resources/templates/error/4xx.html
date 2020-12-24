@@ -1,0 +1,60 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- Viewport metatags -->
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+    <link rel="stylesheet" type="text/css" th:href="@{/static/error/css/dandelion.css}"  media="screen" />
+
+    <title th:if="${errorCode != null}" th:text="${errorCode}"></title>
+    <title th:if="${errorCode == null}" th:text="'404'"></title>
+
+</head>
+
+<body>
+
+<!-- Main Wrapper. Set this to 'fixed' for fixed layout and 'fluid' for fluid layout' -->
+<div id="da-wrapper" class="fluid">
+
+    <!-- Content -->
+    <div id="da-content">
+
+        <!-- Container -->
+        <div class="da-container clearfix">
+
+            <div id="da-error-wrapper">
+
+                <div id="da-error-pin"></div>
+                <div id="da-error-code">
+                    error <span th:if="${errorCode != null}" th:text="${errorCode}"></span>
+                    <span th:if="${errorCode == null}" th:text="'404'"></span>
+
+                </div>
+
+                <h1 class="da-error-heading">哎哟喂！页面好像不见了呢！</h1>
+
+                <center><a href="/">
+                    <h3>返回首页</h3>
+                </a></center>
+                <center><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=626086048@qq.com">
+                    <h3>联系我们</h3>
+                </a></center>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="da-footer">
+        <div class="da-container clearfix">
+            <p>  Copyright © 2020. All Rights Reserved. www.example.com | <a href="http://www.miitbeian.gov.cn/" target="_blank">津ICP备00000001号</a> </p></div>
+    </div>
+
+</div>
+
+</body>
+</html>

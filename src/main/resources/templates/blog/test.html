@@ -1,0 +1,138 @@
+<!-- 子模块 index 主要用于主页 -->
+<div layout:fragment="index">
+    <!-- #masthead -->
+    <div class="trending-wrapper">
+        <strong class="trending-title"> Trending News </strong>
+        <div class="trending-content trending-left">
+
+            <a th:each="article:${articlesNew.getContent()}" th:href="'/article/'+ ${article.getPost_id()} +'.html'" th:title="${article.getTitle()}" th:text="${article.getTitle()}"> <span class="img-marq"> </span></a>
+        </div>
+    </div>
+    <!-- .top-right-col -->
+    <div class="refined-magazine-featured-block refined-magazine-ct-row clearfix" style="margin-left: 20px;">
+        <div class="refined-magazine-col">
+            <ul class="ct-post-carousel slider hover-prev-next" data-slick="[]">
+                <li>
+                    <div class="featured-section-inner ct-post-overlay">
+                        <div class="post-thumb">
+                            <a href="/category/Linux"> <img src="/theme/images/linux.jpg" alt="Linux学习之路"> </a>
+                        </div>
+                        <div class="featured-section-details post-content">
+                            <h3 class="post-title"> <a href="/category/Linux">Linux学习之路</a> </h3>
+                            <div class="post-meta">
+                                <span class="byline"> <span class="author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope><i class="fa fa-user"></i><a class="url fn n" href="/author/losha" rel="author"><span class="author-name" itemprop="name">花梓</span></a></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .featured-section-inner --> </li>
+                <li>
+                    <div class="featured-section-inner ct-post-overlay">
+                        <div class="post-thumb">
+                            <a href="/category/django"> <img src="/theme/images/django.jpg" alt="Django让web更简单"> </a>
+                        </div>
+                        <div class="featured-section-details post-content">
+                            <h3 class="post-title"> <a href="/category/django">Django让web更简单</a> </h3>
+                            <div class="post-meta">
+                                <span class="byline"> <span class="author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope><i class="fa fa-user"></i><a class="url fn n" href="/author/losha" rel="author"><span class="author-name" itemprop="name">花梓</span></a></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .featured-section-inner --> </li>
+                <li>
+                    <div class="featured-section-inner ct-post-overlay">
+                        <div class="post-thumb">
+                            <a href="/category/python"> <img src="/theme/images/python.jpg" alt="Python让编程更简单"> </a>
+                        </div>
+                        <div class="featured-section-details post-content">
+                            <h3 class="post-title"> <a href="/category/python">Python让编程更简单</a> </h3>
+                            <div class="post-meta">
+                                <span class="byline"> <span class="author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope><i class="fa fa-user"></i><a class="url fn n" href="/author/losha" rel="author"><span class="author-name" itemprop="name">花梓</span></a></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .featured-section-inner --> </li>
+                <li>
+                    <div class="featured-section-inner ct-post-overlay">
+                        <div class="post-thumb">
+                            <a href="/category/javascript"> <img src="/theme/images/js.jpg" alt="高效前端开发语言javascript"> </a>
+                        </div>
+                        <div class="featured-section-details post-content">
+                            <h3 class="post-title"> <a href="/category/javascript">高效前端开发语言javascript</a> </h3>
+                            <div class="post-meta">
+                                <span class="byline"> <span class="author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope><i class="fa fa-user"></i><a class="url fn n" href="/author/losha" rel="author"><span class="author-name" itemprop="name">花梓</span></a></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .featured-section-inner --> </li>
+            </ul>
+        </div>
+        <!--.refined-magazine-col-->
+        <div class="refined-magazine-col refined-magazine-col-2">
+            <div class="refined-magazine-inner-row clearfix">
+                <!-- 最火的文章 -->
+                <div class="refined-magazine-col refined-magazine-col-full">
+                    <div class="featured-section-inner ct-post-overlay">
+                        <div class="post-thumb">
+                            <a href="/article/{{ mostview_articles.0.post_id }}.html"> <img src="/theme/images/fire.jpg" style="width: 100%; height:200px;" alt="{{ mostview_articles.0.title }}"> </a>
+                        </div>
+                        <div class="featured-section-details post-content">
+                            <div class="post-meta">
+                                <span class="cat-links"><a class="ct-cat-item-53" href="/category/{{ mostview_articles.0.category.name }}" rel="category tag">{{ mostview_articles.0.category.name }}</a> </span>
+                            </div>
+                            <h3 class="post-title"> <a href="/article/{{ mostview_articles.0.post_id }}.html">{{ mostview_articles.0.title }}</a> </h3>
+                            <div class="post-meta">
+                                <span class="posted-on"><i class="fa fa-calendar"></i><a href="/article/{{ mostview_articles.0.post_id }}.html" rel="bookmark"><time class="entry-date published" datetime="{{ mostview_articles.0.publish_time | date:'Y-m-d' }}" itemprop="datePublished">{{ mostview_articles.0.publish_time | date:'Y-m-d' }}</time><time class="updated" datetime="{{ mostview_articles.0.publish_time | date:'Y-m-d' }}" itemprop="dateModified">{{ mostview_articles.0.publish_time | date:'Y-m-d' }}</time></a></span>
+                                <span class="byline"> <span class="author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope><i class="fa fa-user"></i><a class="url fn n" href="/author/{{ mostview_articles.0.author.nickname}}" rel="author"><span class="author-name" itemprop="name">{{ mostview_articles.0.author.nickname}}</span></a></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .featured-section-inner -->
+                </div>
+
+                <!--.refined-magazine-col-->
+                <div class="refined-magazine-col ">
+                    <div class="featured-section-inner ct-post-overlay">
+                        <div class="post-thumb">
+                            <a href="/article/{{ new_articles.0.post_id }}.html"> <img src="{{ new_articles.0.image.image.url }}" style="width: 100%;height:210px;" alt="dddd"> </a>
+                        </div>
+                        <div class="featured-section-details post-content">
+                            <div class="post-meta">
+                                <span class="cat-links"><a class="ct-cat-item-1" href="/category/{{ new_articles.0.category.name }}" rel="category tag">{{ new_articles.0.category.name }}</a> </span>
+                            </div>
+                            <h3 class="post-title"> <a href="/article/{{ new_articles.0.post_id }}.html">{{ new_articles.0.title }}</a> </h3>
+                            <div class="post-meta">
+                                <span class="posted-on"><i class="fa fa-calendar"></i><a href="/article/{{ new_articles.0.post_id }}.html" rel="bookmark"><time class="entry-date published" datetime="{{ new_articles.0.publish_time | date:'Y-m-d' }}" itemprop="datePublished">{{ new_articles.0.publish_time | date:'Y-m-d' }}</time><time class="updated" datetime="{{ new_articles.0.publish_time | date:'Y-m-d' }}" itemprop="dateModified">{{ new_articles.0.publish_time | date:'Y-m-d' }}</time></a></span>
+                                <span class="byline"> <span class="author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope><i class="fa fa-user"></i><a class="url fn n" href="/author/{{ new_articles.0.author.nickname}}" rel="author"><span class="author-name" itemprop="name">{{ new_articles.0.author.nickname}}</span></a></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .featured-section-inner -->
+                </div>
+
+
+                <!--.refined-magazine-col-->
+                <div class="refined-magazine-col ">
+                    <div class="featured-section-inner ct-post-overlay">
+                        <div class="post-thumb">
+                            <a href="/article/{{ new_articles.1.post_id }}.html"> <img src="{{ new_articles.1.image.image.url }}" style="width: 100%; height:210px;" alt="dddd"> </a>
+                        </div>
+                        <div class="featured-section-details post-content">
+                            <div class="post-meta">
+                                <span class="cat-links"><a class="ct-cat-item-1" href="/category/{{ new_articles.1.category.name }}" rel="category tag">{{ new_articles.1.category.name }}</a> </span>
+                            </div>
+                            <h3 class="post-title"> <a href="/article/{{ new_articles.1.post_id }}.html">{{ new_articles.1.title }}</a> </h3>
+                            <div class="post-meta">
+                                <span class="posted-on"><i class="fa fa-calendar"></i><a href="/article/{{ new_articles.1.post_id }}.html" rel="bookmark"><time class="entry-date published" datetime="{{ new_articles.1.publish_time | date:'Y-m-d' }}" itemprop="datePublished">{{ new_articles.1.publish_time | date:'Y-m-d' }}</time><time class="updated" datetime="{{ new_articles.1.publish_time | date:'Y-m-d' }}" itemprop="dateModified">{{ new_articles.1.publish_time | date:'Y-m-d' }}</time></a></span>
+                                <span class="byline"> <span class="author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope><i class="fa fa-user"></i><a class="url fn n" href="/author/{{ new_articles.1.author.nickname}}" rel="author"><span class="author-name" itemprop="name">{{ new_articles.1.author.nickname}}</span></a></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .featured-section-inner -->
+                </div>
+
+            </div>
+            <!--.refined-magazine-col-->
+        </div>
+    </div>
+    <!--.refined-magazine-col-->
+</div>

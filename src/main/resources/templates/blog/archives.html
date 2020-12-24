@@ -1,0 +1,41 @@
+<html lang="en" layout:decorator="blog/base" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<div layout:fragment="title">
+    <title> 文章归档</title>
+</div>
+
+<div id="primary" class="content-area" layout:fragment="content">
+    <main id="main" class="site-main">
+        <!-- 导航版 -->
+        <div class="breadcrumbs">
+            <div class="breadcrumbs init-animate clearfix">
+                <span class="breadcrumb">You are Here</span>
+                <div id="refined-magazine-breadcrumbs" class="clearfix">
+                    <div role="navigation" aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs" itemprop="breadcrumb">
+                        <ul class="trail-items" itemscope itemtype="http://schema.org/BreadcrumbList">
+                            <meta name="numberOfItems" content="2">
+                            <meta name="itemListOrder" content="Ascending">
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="trail-item trail-begin"><a href="/" rel="home"><span itemprop="name">Home</span></a>
+                                <meta itemprop="position" content="1"></li>
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="trail-item trail-end"><span itemprop="name"> 文章归档 </span>
+                                <meta itemprop="position" content="2"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div th:each="k:${dataMap.keySet()}">
+                <h3 th:text="${k.get(0)} + '年' + ${k.get(1)+1} + '月'"> </h3>
+                <ul>
+                    <li th:each="article:${dataMap.get(k)}">
+                        <small th:text="${article.getDay()} + '日'"></small>
+                        <a th:href="'/article/' + ${article.getPost_id()} + '.html'" th:text="${article.getTitle()}">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</div>
+</html>

@@ -1,0 +1,205 @@
+<html lang="en" layout:decorator="admin/base" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<div layout:fragment="title">
+    <title>图像库</title>
+</div>
+
+
+
+<div class="container" layout:fragment="content">
+    <div class="row">
+        <div class="col" th:each="image : ${imagePage.getContent()}">
+            <img th:src="${image.getUrl()}" style="width: 90%;height:90%;">
+            <p style="font-size: 20px;">
+                <span th:text="${image.getName()}"></span>
+              &nbsp;&nbsp;
+                <span style="color: red;" th:text="${image.getUser().getNickname()}"></span>
+
+            </p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imageDeleteModal" th:data-name="${image.getName()}" style="margin-left: 50px;">
+                删除
+            </button>
+        </div>
+
+    </div>
+    <div class="row" style="margin-top: 100px;">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addImage">
+            新增图片
+        </button>
+    </div>
+    <!-- 分页处理 -->
+    <div class="row" style="margin-top: 20px; margin-left: auto">
+        <span class="step-links" >
+            <a th:unless="${imagePage.hasPrevious()}" th:href="@{/wp-admin/ImageLibrary(page=0)}"> 《上一页</a>
+            <a th:if="${imagePage.hasPrevious()}" th:href="@{/wp-admin/ImageLibrary(page=${imagePage.previousPageable().getPageNumber()})}"> 《上一页</a>
+            &nbsp;
+            <span class="current" th:text="'Page &nbsp;' + ${imagePage.getPageable().getPageNumber() + 1} + '&nbsp; of &nbsp; ' + ${imagePage.getTotalPages()}"> </span> &nbsp;
+            <a th:unless="${imagePage.hasNext()}" th:href="@{/wp-admin/ImageLibrary(page=${imagePage.getTotalPages() - 1})}">下一页 》</a>
+            <a th:if="${imagePage.hasNext()}" th:href="@{/wp-admin/ImageLibrary(page=${imagePage.nextPageable().getPageNumber()})}">下一页 》</a>
+        </span>
+    </div>
+
+    <!-- 新增图片模态框 -->
+    <div class="modal fade" id="addImage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">新增图片</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/wp-admin/addImageLibrary" method="POST" enctype="multipart/form-data" id="add-image-library-form">
+                        <div class="form-group">
+                            <label for="modify-name" class="col-form-label">名字</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">选择图像</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" required>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <input type="button" class="btn btn-primary" value="确认" id="submit-btn">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 删除确认模态框 -->
+    <!-- Modal -->
+    <div class="modal fade" id="imageDeleteModal" tabindex="-1" role="dialog" aria-labelledby="imageDeleteModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageDeleteModal">确认信息</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    你是否确认删除该图片
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <!-- 删除文章按钮，提交表单，通过给服务器传递一个文章id来删除的 -->
+                    <form method="POST" enctype="multipart/form-data" id="delete-image-form">
+                        <input type="hidden" id="delete_name" name="delete_name">
+                        <button type="button" class="btn btn-primary" id="delete-submit">确认</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+<!-- js部分 -->
+<div layout:fragment="js">
+<script>
+    // 新增图片模态框
+    $('#addImage').on('show.bs.modal', function (event){
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        // 写入 intput 内容
+        // $(this).find("#article_post_id").val(num_id)
+    });
+</script>
+
+<script>
+    // 新增图片提交表单的js代码
+    function message_out(msg){
+        $("#messageModal").find("#message-body").html(msg);
+        $("#messageModal").modal('show');
+    }
+    $("[id=submit-btn]").click(function(){
+        // 新增图片库js代码
+        var data = new FormData($("#add-image-library-form")[0]);
+        $.ajax({
+            type:'post',
+            url:"/wp-admin/addImageLibrary",  // 你请求的url  需要自己修改哦
+            cache: false,    //上传文件不需缓存
+            processData: false, //需设置为false。因为data值是FormData对象，不需要对数据做处理
+            contentType: false, //需设置为false。因为是FormData对象，且已经声明了属性enctype="multipart/form-data"
+            data:data,  // 表单数据
+            dataType:'json',
+            success:function(data){
+                var state = data['success'];
+                if(state == 1){
+                    // 重新加载
+                    location.reload();
+                }
+                else if(state == 0){
+                    var info = data['message'];
+                    message_out(info);
+                }
+                else{
+                    message_out("服务器返回未知信息");
+                }
+            },
+            error:function(){
+                message_out("请求失败");
+            }
+        });
+    });
+</script>
+
+<script>
+    // 删除图片库 js提交表单
+    function message_out(msg){
+        $("#messageModal").find("#message-body").html(msg);
+        $("#messageModal").modal('show');
+    }
+    $("[id=delete-submit]").click(function(){
+        // 删除图片库js代码
+        var data = new FormData($("#delete-image-form")[0]);
+        $.ajax({
+            type:'post',
+            url:"/wp-admin/ImageLibraryDelete",  // 你请求的url  需要自己修改哦
+            cache: false,    //上传文件不需缓存
+            processData: false, //需设置为false。因为data值是FormData对象，不需要对数据做处理
+            contentType: false, //需设置为false。因为是FormData对象，且已经声明了属性enctype="multipart/form-data"
+            data:data,  // 表单数据
+            dataType:'json',
+            success:function(data){
+                var state = data['success'];
+                if(state == 1){
+                    // 重新加载
+                    location.reload();
+                }
+                else if(state == 0){
+                    var info = data['message'];
+                    message_out(info);
+                }
+                else{
+                    message_out("服务器返回未知信息");
+                }
+            },
+            error:function(){
+                message_out("请求失败");
+            }
+        });
+    });
+</script>
+
+<script>
+    // 删除图片模态框
+    $('#imageDeleteModal').on('show.bs.modal', function (event){
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var name = button.data('name');
+        // 写入 intput 内容
+        $(this).find("#delete_name").val(name);
+    });
+</script>
+</div>
+
+</html>

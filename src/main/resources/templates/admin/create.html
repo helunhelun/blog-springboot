@@ -1,0 +1,186 @@
+<html lang="en" layout:decorator="admin/base" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div layout:fragment="title">
+    <title>写文章</title>
+</div>
+<div layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/static/wp-admin/editormd/css/editormd.min.css}"/>
+</div>
+
+<!--内容-->
+<div class="container" layout:fragment="content">
+    <div class="row">
+        <div class="col-11">
+            <div>
+                <!-- 用表单的形式上传页面  -->
+                <form method="POST" id="article-submit-form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <!-- 文章分类 -->
+                        <label for="category">文章分类</label>
+                        <select id="category" name="category">
+                            <option th:each="category: ${categories}" th:value="${category.getName()}" th:text="${category.getName()}"></option>
+                        </select>
+                        <!-- 文章标签 -->
+                        <label for="tag" style="margin-left: 20px;">文章标签</label>
+                        <select id="tag" name="tag" >
+                                <option th:each="tag: ${tags}" th:value="${tag.getName()}" th:text="${tag.getName()}"></option>
+                        </select>
+                        <!-- 作者 -->
+                        <label for="author" style="margin-left: 20px;">作者</label>
+                        <select id="author" name="author">
+                            <option th:each="u: ${user}" th:value="${u.getUsername()}" th:text="${u.getNickname()}"></option>
+                        </select>
+                        <!-- 文章状态 -->
+
+                        <label for="ArticleStatus" style="margin-left: 20px;">文章状态</label>
+                        <select id="ArticleStatus" name="article_status">
+                            <option value="p">公开发布</option>
+                            <option value="d">草稿</option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="link">文章链接：</label>
+                        <input type="hidden" name="type" value="create" id="input-type" required>
+                        <input type="hidden" name="post_id" th:value="${new_post_id.longValue()}" required>
+                        <a th:href="'/article/'+${new_post_id.longValue()}+'.html'" target="_blank"
+                           th:text="'https://www.ivdone.cn/article/'+${new_post_id.longValue()}+'.html'"></a>
+                    </div>
+                    <!--  文章标题图片 -->
+
+                    <div class="form-group">
+                        <label for="image">文章标题图片（来自图像库）：</label>
+                        <select id="image" name="image">
+
+                            <option th:each="image:${imageLibraryPage.getContent()}" th:value="${image.getName()}" th:data-url="${image.getUrl()}" th:text="${image.getName()}"></option>
+                            <option value="" data-url=" " selected="selected">None</option>
+                        </select>
+                        <!-- 图片预显示 -->
+                         <img style="width: 25%;height: 25%;margin-left: 40px;" id="image-display">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">文章标题</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="form-group" id="text-summary">
+                        <label for="summary">文章摘要</label>
+                        <textarea class="form-control" id="summary" rows="10" cols="10" name="summary" style="height: 80px;"  required></textarea>
+                    </div>
+                    <!-- 增加一个button主要是方便提交  -->
+                    <button type="button" style="margin-bottom: 10px;" class="btn btn-primary" id="submit-btn"> 提交</button>
+                    <br>
+                    <label for="body">文章内容</label>
+                    <div class="form-group" id="text-body">
+                        <textarea class="form-control" id="content" rows="10" cols="100" name="body" style="display: none;" required></textarea>
+                    </div>
+                    <button type="button"  class="btn btn-primary" id="submit-btn"> 提交</button>
+                    <input type="reset" class="btn btn-primary" value="重置">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- js部分 -->
+<div layout:fragment="js">
+    <script th:src="@{/static/wp-admin/editormd/editormd.js}"></script>
+    <script>
+        window.onload=function () {
+            var art_list=document.getElementById('box');
+            var art_list_a=art_list.getElementsByTagName('a');
+
+            for (var i=0;i<art_list_a.length;i++){
+
+                var aclick = art_list_a[i];
+
+                aclick.onclick=function(){
+
+                    for (var j=0;j<art_list_a.length;j++){
+                        art_list_a[j].className='';
+                        art_list_a[j].style.color='#000000';
+                    }
+                    this.className='actives';
+                    this.style.color='#ffffff';
+                };
+
+
+            }
+
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(function() {
+                var editor = editormd("text-body", {
+                    width  : "100%",
+                    height : 800,
+                    htmlDecode : true,
+                    htmlDecode : "style,script,iframe,sub,sup|on*",
+                    path   : "/static/wp-admin/editormd/lib/",
+                    imageUpload    : true,
+                    imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                    imageUploadURL : "/wp-admin/file/upload",
+                    emoji : true,
+                });
+            });
+        });
+
+    </script>
+
+    <script>
+        function message_out(msg){
+            $("#messageModal").find("#message-body").html(msg);
+            $("#messageModal").modal('show');
+        }
+        $("[id=submit-btn]").click(function(){
+            // 获取序列化的html表单数据
+            var data = new FormData($("#article-submit-form")[0]);
+            //data.delete("editormd-image-file");
+            $.ajax({
+                type:'post',
+                url:"/wp-admin/ArticleSubmit",  // 你请求的url  需要自己修改哦
+                cache: false,    //上传文件不需缓存
+                processData: false, //需设置为false。因为data值是FormData对象，不需要对数据做处理
+                contentType: false, //需设置为false。因为是FormData对象，且已经声明了属性enctype="multipart/form-data"
+                data:data,  // 表单数据
+                dataType:'json',
+                success:function(data){
+                    var state = data['state'];
+                    if(state == "success"){
+                        var info = data['info'];
+                        $("[id=submit-btn]").html("更新");
+                        $("#input-type").attr("value", "modify")
+                        message_out(info);
+                    }
+                    else if(state == "error"){
+                        var info = data['info'];
+                        message_out(info);
+                    }
+                    else{
+                        message_out("服务器返回未知信息");
+                    }
+                },
+                error:function(){
+                    message_out("请求失败");
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $("#image").change(function(){
+            // 获取选中的标签的图片url
+            var img_url = $(this).find("option:selected").attr("data-url");
+            // 显示出来
+            $("#image-display").attr("src", img_url)
+            //var data_url = $("#selected").attr("data-url");
+            //alert(selected)
+        });
+    </script>
+</div>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorator="admin/base" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<div layout:fragment="title">
+    <title>文章管理</title>
+</div>
+
+
+
+
+<div class="container" layout:fragment="content">
+    <div class="row mt-2">
+        <ul class="list-group">
+            <li class="list-group-item active" style="font-size: 25px;">
+                <a href="/wp-admin/ArticleAdmin" style="color:gold" th:text="'全部文章（' + ${totalArticleCount} + ')'">）</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="/wp-admin/ArticleAdmin?post_status=p" style="color:fuchsia" th:text="'公开文章（' + ${publicArticleCount} + ')'"></a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="/wp-admin/ArticleAdmin?post_status=d" style="color:fuchsia" th:text="'草稿文章（' + ${draftArticleCount} + ')'"></a>
+            </li>
+            <div class="container mt-4" th:each="article:${articlePage.getContent()}">
+                <div class="row mt-1">
+                    <li class="list-group-item"><a th:href="'/article/'+ ${article.getPost_id()} +'.html'" target="_blank"><span style="font-size: 30px;" th:text="${article.getTitle()}"></span></a> &nbsp;&nbsp;&nbsp;
+                        <span style="color: chocolate;" th:text="'浏览量：' + ${article.getViews()}"></span> |
+                        <span style="color:crimson" th:text="'分类：'+${article.getCategory().getName()}"> </span> |
+                        <span style="color:darkorange" th:text="'标签：'+${article.getTag().getName()}"></span> |
+                        <span style="color:deepskyblue" th:text="'作者：'+${article.getUser().getNickname()}"> </span> |
+
+                        <span style="color:chocolate" th:if="${article.getStatus()} == 'p' "> 状态：公开 |</span>
+                        <span style="color:chocolate" th:if="${article.getStatus()} == 'd' "> 状态：草稿 |</span>
+                        <!--
+                        {% if article.comment_status == "o" %}
+                        <span style="color:deepskyblue"> 评论：打开 </span> |
+                        {% elif article.comment_status == "c" %}
+                        <span style="color:deepskyblue"> 评论：关闭 </span> |
+                        {% endif %}
+                        -->
+                        <span style="color:crimson" th:text="'发布时间：'+ ${article.getDate()}"></span>
+                    </li>
+                </div>
+                <div class="row mt-1">
+                    <a th:href="'/article/'+ ${article.getPost_id()} +'.html'">
+                        <button type="button" class="btn btn-primary" style="margin-left: 20px;">查看</button>
+                    </a>
+                    <a th:href="'/wp-admin/modify/'+ ${article.getPost_id()} +'.html'">
+                        <button type="button" class="btn btn-primary"  style="margin-left: 20px;">编辑</button>
+                    </a>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adminDeleteModal" th:data-articleid="${article.getPost_id()}" style="margin-left: 20px;">
+                        删除
+                    </button>
+                </div>
+            </div>
+
+            <!-- 分页处理 -->
+            <div style="margin:0 auto;">
+                <span class="step-links" >
+                    <a th:unless="${articlePage.hasPrevious()}" th:href="@{/wp-admin/ArticleAdmin(page=0, post_status=${callStatus})}"> 《上一页</a>
+                    <a th:if="${articlePage.hasPrevious()}" th:href="@{/wp-admin/ArticleAdmin(page=${articlePage.previousPageable().getPageNumber()}, post_status=${callStatus})}"> 《上一页</a>
+                    &nbsp;
+                    <span class="current" th:text="'Page &nbsp;' + ${articlePage.getPageable().getPageNumber() + 1} + '&nbsp; of &nbsp; ' + ${articlePage.getTotalPages()}"> </span> &nbsp;
+                    <a th:unless="${articlePage.hasNext()}" th:href="@{/wp-admin/ArticleAdmin(page=${articlePage.getTotalPages() - 1}, post_status=${callStatus})}">下一页 》</a>
+                    <a th:if="${articlePage.hasNext()}" th:href="@{/wp-admin/ArticleAdmin(page=${articlePage.nextPageable().getPageNumber()}, post_status=${callStatus})}">下一页 》</a>
+                </span>
+            </div>
+        </ul>
+    </div>
+</div>
+
+<!-- js部分 -->
+<div layout:fragment="js">
+    <!-- 删除确认模态框 -->
+    <!-- Modal -->
+    <div class="modal fade" id="adminDeleteModal" tabindex="-1" role="dialog" aria-labelledby="adminDeleteModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="adminDeleteModal">确认信息</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    你是否确认删除该文章
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <!-- 删除文章按钮，提交表单，通过给服务器传递一个文章id来删除的 -->
+                    <form action="/wp-admin/ArticleDelete" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" id="article_post_id" name="delete_post_id">
+                        <button type="submit" class="btn btn-primary">确认</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    // 删除模态框
+    $('#adminDeleteModal').on('show.bs.modal', function (event){
+        var button = $(event.relatedTarget) ;// Button that triggered the modal
+        var num_id = button.data('articleid');
+        // 写入 intput 内容
+        $(this).find("#article_post_id").val(num_id);
+    });
+</script>
+</div>
+
+</html>

@@ -1,0 +1,147 @@
+<html lang="en" layout:decorator="blog/base" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<!-- 子模块title -->
+<div layout:fragment="title">
+    <title th:text="${article.getTitle()}"> </title>
+</div>
+
+<div layout:fragment="css">
+</div>
+
+<div id="primary" class="content-area" layout:fragment="content">
+    <main id="main" class="site-main">
+        <!-- 导航版 -->
+        <div class="breadcrumbs">
+            <div class="breadcrumbs init-animate clearfix">
+                <span class="breadcrumb">You are Here</span>
+                <div id="refined-magazine-breadcrumbs" class="clearfix">
+                    <div role="navigation" aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs" itemprop="breadcrumb">
+                        <ul class="trail-items" itemscope itemtype="http://schema.org/BreadcrumbList">
+                            <meta name="numberOfItems" content="2">
+                            <meta name="itemListOrder" content="Ascending">
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="trail-item trail-begin"><a href="/" rel="home"><span itemprop="name">Home</span></a>
+                                <meta itemprop="position" content="1"></li>
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="trail-item trail-end"><span itemprop="name" th:text="${article.getTitle()}">  </span>
+                                <meta itemprop="position" content="2"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 文章部分 -->
+        <article id="post-1098" class="post-1098 post type-post status-publish format-standard hentry category-problems" itemtype="https://schema.org/CreativeWork" itemscope>
+            <div class="refined-magazine-content-container refined-magazine-no-thumbnail">
+                <div class="refined-magazine-content-area">
+                    <!-- 文章头部 -->
+                    <header class="entry-header">
+                        <div class="post-meta">
+                            <span class="cat-links"><a class="ct-cat-item-90" th:href="'/category/'+${article.getCategory().getName()}" rel="category tag" th:text="${article.getCategory().getName()}"> </a> </span>
+                        </div>
+                        <h1 class="entry-title" itemprop="headline" th:text="${article.getTitle()}"> </h1>
+                        <div class="entry-meta">
+                            <span class="posted-on"><i class="fa fa-calendar"></i><a th:href="'/article/'+${article.getPost_id()}+'.html'" rel="bookmark"><time class="entry-date published" th:datetime="${article.getDate()}" itemprop="datePublished" th:text="${article.getDate()}"> </time><time class="updated" th:datetime="${article.getDate()}" itemprop="dateModified" th:text="${article.getDate()}"></time></a></span>
+                            <!-- 浏览量 -->
+                            <span class="post-views-icon dashicons dashicons-chart-bar"></span>
+                            <span class="post-views-count" th:text="${article.getViews()}"> </span>
+
+                            <span class="byline"> <span class="author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope><i class="fa fa-user"></i><a class="url fn n" th:href="'/author/'+${article.getUser().getNickname()}" rel="author"><span class="author-name" itemprop="name" th:text="${article.getUser().getNickname()}"> </span></a></span></span>
+                            <span class="byline"> <span class="author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope> <i class="fa fa-edit"></i><a class="url fn n" th:href="'/wp-admin/modify/'+${article.getPost_id()} + '.html'"><span class="author-name" itemprop="name"> 编辑 </span></a></span></span>
+                        </div>
+                        <!-- .entry-meta -->
+                    </header>
+                    <!-- 文章头部 结束 -->
+                    <!--文章主体  -->
+                    <div class="entry-content">
+                        <div th:utext="${article.getBody()}">
+
+                        </div>
+                        <!--  点赞功能 先不要 以后在开发
+                        <div class="wpulike wpulike-robeen ">
+                            <div class="wp_ulike_general_class wp_ulike_is_not_liked">
+                                <button id="like-button" type="button" aria-label="Like Button" data-ulike-id="1098" data-ulike-nonce="11ca30ef06" data-ulike-type="likeThis" data-ulike-template="wpulike-robeen" data-ulike-display-likers="" data-ulike-disable-pophover="" class="wp_ulike_btn wp_ulike_put_image wp_likethis_1098"></button>
+                                <span class="count-box" th:text="${article.getLike()} + '+'"></span>
+                            </div>
+                        </div> -->
+                    </div>
+                    <!-- .entry-content -->
+                    <footer class="entry-footer">
+                    </footer>
+                    <!-- 分享插件 -->
+                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style" style="margin-top: 10px;">
+                        <a class="a2a_button_copy_link"></a>
+                        <a class="a2a_button_wechat"></a>
+                        <a class="a2a_button_facebook"></a>
+                        <a class="a2a_button_email"></a>
+                        <a class="a2a_button_facebook_messenger"></a>
+                        <a class="a2a_button_twitter"></a>
+                        <a class="a2a_button_douban"></a>
+                        <a class="a2a_button_renren"></a>
+                        <a class="a2a_button_line"></a>
+                        <a class="a2a_button_wordpress"></a>
+                        <a class="a2a_button_sms"></a>
+                        <a class="a2a_button_google_bookmarks"></a>
+                        <a class="a2a_button_google_gmail"></a>
+                        <a class="a2a_button_sina_weibo"></a>
+                        <a class="a2a_button_qzone"></a>
+                        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                    </div>
+                </div>
+                <!-- .refined-magazine-content-area -->
+            </div>
+            <!-- .refined-magazine-content-container -->
+        </article>
+        <!-- 文章部分结束 -->
+        <!-- 上一篇 和 下一篇 -->
+        <nav class="navigation post-navigation" role="navigation" aria-label="Posts">
+            <h2 class="screen-reader-text">Post navigation</h2>
+            <div class="nav-links">
+                <div class="nav-previous"  th:if="${preArticle != null}">
+                    <a th:href="'/article/' + ${preArticle.getPost_id()} + '.html'" rel="prev"  th:text="${preArticle.getTitle()}"></a>
+                </div>
+                <div class="nav-next"  th:if="${nextArticle != null}">
+                    <a th:href="'/article/' + ${nextArticle.getPost_id()} + '.html'" rel="next"  th:text="${nextArticle.getTitle()}"> </a>
+                </div>
+            </div>
+        </nav>
+        <!-- 随机推荐 -->
+        <div class="related-pots-block">
+            <h2 class="widget-title"> 随机推荐 </h2>
+            <ul class="related-post-entries clearfix">
+                <li th:each="article:${randomArticles.subList(0, 3)}">
+                    <div class="featured-desc">
+                        <h2 class="related-title"> <a th:href="'/article/'+${article.getPost_id()}+'.html'" th:text="${article.getTitle()}"></a> </h2>
+                        <div class="entry-meta">
+                            <span class="posted-on"><i class="fa fa-calendar"></i><a th:href="'/article/'+${article.getPost_id()}+'.html'" rel="bookmark"><time class="entry-date published" th:datetime="${article.getDate()}" itemprop="datePublished" th:text="${article.getDate()}"> </time><time class="updated" th:datetime="${article.getDate()}" itemprop="dateModified" th:text="${article.getDate()}"> </time></a></span>
+                        </div>
+                    </div> </li>
+            </ul>
+        </div>
+        <!-- 随机推荐 结束 -->
+        <!-- 评论部分 -->
+        <section id="isso-thread"></section>
+        <!-- .评论部分结束 -->
+    </main>
+</div>
+
+<!-- 子模块js部分 -->
+<div layout:fragment="js">
+    <!-- 这个是分享插件 -->
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+    <script
+            data-isso="/isso/"
+            data-isso-reply-to-self="true"
+            data-isso-require-author="false"
+            data-isso-require-email="false"
+            data-isso-max-comments-top="10"
+            data-isso-max-comments-nested="5"
+            data-isso-reveal-on-click="5"
+            data-isso-avatar="true"
+            data-isso-avatar-bg="#f0f0f0"
+            data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+            data-isso-vote="true"
+            data-isso-vote-levels=""
+            data-isso-feed="false"
+            src="/isso/js/embed.min.js"
+    ></script>
+</div>
+</html>

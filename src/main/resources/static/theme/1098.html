@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en-US">
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <link rel="profile" href="css/11"> 
+  <title>code-server / vs-code 如何离线安装插件 | Life in Harbin &amp; 浪在冰城</title> 
+  <!-- All In One SEO Pack 3.5.2[211,282] --> 
+  <script type="application/ld+json" class="aioseop-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.ivdone.top/#organization","url":"https://www.ivdone.top/","name":"Life in Harbin &amp; 浪在冰城","sameAs":[]},{"@type":"WebSite","@id":"https://www.ivdone.top/#website","url":"https://www.ivdone.top/","name":"Life in Harbin &amp; 浪在冰城","publisher":{"@id":"https://www.ivdone.top/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://www.ivdone.top/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://www.ivdone.top/article/1098.html#webpage","url":"https://www.ivdone.top/article/1098.html","inLanguage":"en-US","name":"code-server / vs-code 如何离线安装插件","isPartOf":{"@id":"https://www.ivdone.top/#website"},"breadcrumb":{"@id":"https://www.ivdone.top/article/1098.html#breadcrumblist"},"datePublished":"2020-04-19T03:56:27+08:00","dateModified":"2020-05-13T18:35:08+08:00"},{"@type":"Article","@id":"https://www.ivdone.top/article/1098.html#article","isPartOf":{"@id":"https://www.ivdone.top/article/1098.html#webpage"},"author":{"@id":"https://www.ivdone.top/article/author/losha#author"},"headline":"code-server / vs-code 如何离线安装插件","datePublished":"2020-04-19T03:56:27+08:00","dateModified":"2020-05-13T18:35:08+08:00","commentCount":"1","mainEntityOfPage":{"@id":"https://www.ivdone.top/article/1098.html#webpage"},"publisher":{"@id":"https://www.ivdone.top/#organization"},"articleSection":"Problems"},{"@type":"Person","@id":"https://www.ivdone.top/article/author/losha#author","name":"花梓","sameAs":[],"image":{"@type":"ImageObject","@id":"https://www.ivdone.top/#personlogo","url":"https://secure.gravatar.com/avatar/c180eee6a8895a314ff36176abb548fe?s=96&d=monsterid&r=g","width":96,"height":96,"caption":"花梓"}},{"@type":"BreadcrumbList","@id":"https://www.ivdone.top/article/1098.html#breadcrumblist","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://www.ivdone.top/","url":"https://www.ivdone.top/","name":"Life in Harbin &amp; 浪在冰城"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://www.ivdone.top/article/1098.html","url":"https://www.ivdone.top/article/1098.html","name":"code-server / vs-code 如何离线安装插件"}}]}]}</script> 
+  <link rel="canonical" href="css/1098.html"> 
+  <!-- All In One SEO Pack --> 
+  <link rel="dns-prefetch" href="css/null_20dd8c87a5364e16b3502b5f4624b073."> 
+  <link rel="dns-prefetch" href="css/null_d10da70b2a7d4b41901cd24ea9b7d741."> 
+  <link rel="alternate" type="application/rss+xml" title="Life in Harbin &amp; 浪在冰城 » Feed" href="css/feed"> 
+  <link rel="alternate" type="application/rss+xml" title="Life in Harbin &amp; 浪在冰城 » Comments Feed" href="css/null_6de9875565204a1196656fdbdc944780.feed"> 
+  <link rel="alternate" type="application/rss+xml" title="Life in Harbin &amp; 浪在冰城 » code-server / vs-code 如何离线安装插件 Comments Feed" href="css/null_f20755dd7d804af8bbd697726d8db52f.feed"> 
+  <link rel="stylesheet" id="wp-block-library-css" href="css/style.min.css" type="text/css" media="all"> 
+  <link rel="stylesheet" id="wp-block-library-theme-css" href="css/theme.min.css" type="text/css" media="all"> 
+  <link rel="stylesheet" id="dashicons-css" href="css/dashicons.min.css" type="text/css" media="all"> 
+  <link rel="stylesheet" id="post-views-counter-frontend-css" href="css/frontend.css" type="text/css" media="all"> 
+  <link rel="stylesheet" id="toc-screen-css" href="css/screen.min.css" type="text/css" media="all"> 
+  <link rel="stylesheet" id="Katex-css" href="css/katex.min.css" type="text/css" media="all"> 
+  <link rel="stylesheet" id="Emojify.js-css" href="css/emojify.min.css" type="text/css" media="all"> 
+  <link rel="stylesheet" id="prism-theme-default-css" href="css/prism.css" type="text/css" media="all"> 
+  <link rel="stylesheet" id="prism-plugin-toolbar-css" href="css/prism-toolbar.css" type="text/css" media="all"> 
+  <link rel="stylesheet" id="prism-plugin-line-numbers-css" href="css/prism-line-numbers.css" type="text/css" media="all"> 
+  <link rel="stylesheet" id="wp-ulike-css" href="css/wp-ulike.min.css" type="text/css" media="all"> 
+  <link rel="stylesheet" id="google-fonts-css" href="css/css" type="text/css" media="all"> 
+  <link rel="stylesheet" id="font-awesome-css" href="css/font-awesome.min.css" type="text/css" media="all"> 
+  <link rel="stylesheet" id="slick-css-css" href="css/slick.css" type="text/css" media="all"> 
+  <link rel="stylesheet" id="slick-theme-css-css" href="css/slick-theme.css" type="text/css" media="all"> 
+  <link rel="stylesheet" id="refined-magazine-style-css" href="css/style.css" type="text/css" media="all"> 
+  <style id="refined-magazine-style-inline-css" type="text/css">
+.site-branding h1, .site-branding p.site-title,.ct-dark-mode .site-title a, .site-title, .site-title a, .site-title a:hover, .site-title a:visited:hover { color: #ffffff; }.entry-content a, .entry-title a:hover, .related-title a:hover, .posts-navigation .nav-previous a:hover, .post-navigation .nav-previous a:hover, .posts-navigation .nav-next a:hover, .post-navigation .nav-next a:hover, #comments .comment-content a:hover, #comments .comment-author a:hover, .offcanvas-menu nav ul.top-menu li a:hover, .offcanvas-menu nav ul.top-menu li.current-menu-item > a, .error-404-title, #refined-magazine-breadcrumbs a:hover, .entry-content a.read-more-text:hover, a:hover, a:visited:hover, .widget_refined_magazine_category_tabbed_widget.widget ul.ct-nav-tabs li a  { color : #0d19a3; }.candid-refined-post-format, .refined-magazine-featured-block .refined-magazine-col-2 .candid-refined-post-format, .cat-links a,.top-bar,.main-navigation ul li a:hover, .main-navigation ul li.current-menu-item > a, .main-navigation ul li a:hover, .main-navigation ul li.current-menu-item > a, .trending-title, .search-form input[type=submit], input[type="submit"], ::selection, #toTop, .breadcrumbs span.breadcrumb, article.sticky .refined-magazine-content-container, .candid-pagination .page-numbers.current, .candid-pagination .page-numbers:hover, .ct-title-head, .widget-title:before, .widget ul.ct-nav-tabs:before, .widget ul.ct-nav-tabs li.ct-title-head:hover, .widget ul.ct-nav-tabs li.ct-title-head.ui-tabs-active { background-color : #0d19a3; }.candid-refined-post-format, .refined-magazine-featured-block .refined-magazine-col-2 .candid-refined-post-format, blockquote, .search-form input[type="submit"], input[type="submit"], .candid-pagination .page-numbers { border-color : #0d19a3; }.ct-post-overlay .post-content, .ct-post-overlay .post-content a, .widget .ct-post-overlay .post-content a, .widget .ct-post-overlay .post-content a:visited, .ct-post-overlay .post-content a:visited:hover, .slide-details:hover .cat-links a { color: #fff; }.logo-wrapper-block{background-color : #4240ed; }@media (min-width: 1600px){.ct-boxed #page{max-width : 1500px; }}
+</style> 
+  <script type="text/javascript" src="js/jquery.js"></script> 
+  <script type="text/javascript" src="js/jquery-migrate.min.js"></script> 
+  <script type="text/javascript">
+/* <![CDATA[ */
+var jslAjax = {"ajax_url":"https:\/\/www.ivdone.top\/wordpress\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script> 
+  <script type="text/javascript" src="js/joomsport_live.js"></script> 
+  <link rel="https://api.w.org/" href="css/null_64ef7bd9f7ae4cee827fd19a6df68c11."> 
+  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="css/xmlrpc.php"> 
+  <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="css/wlwmanifest.xml"> 
+  <link rel="prev" title="Thread 463 received signal SIGTRAP, Trace/breakpoint trap." href="css/1095.html"> 
+  <link rel="next" title="如何使用Nginx代理php服务，使用浏览器直接访问运行php文件" href="css/1107.html"> 
+  <meta name="generator" content="WordPress 5.4"> 
+  <link rel="shortlink" href="css/null_d7ece5eae9494e5e9cc620b5cae52661."> 
+  <link rel="alternate" type="application/json+oembed" href="css/null_eee0db1eac3a474da1c881c334eda72f.embed"> 
+  <script type="text/javascript">
+                var ajaxurl = "https://www.ivdone.top/wordpress/wp-admin/admin-ajax.php";
+              </script>
+  <link rel="pingback" href="css/xmlrpc_9da19603ebae4416aca662bba020c228.html">
+  <style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style> 
+  <style type="text/css">
+					.site-title a, .site-title{
+				color: #ffffff;
+			}
+		</style> 
+  <style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #fafafa; }
+</style> 
+ </head> 
+ <body class="post-template-default single single-post postid-1098 single-format-standard custom-background wp-embed-responsive ct-bg ct-boxed ct-sticky-sidebar right-sidebar" itemtype="https://schema.org/Blog" itemscope> 
+  <div id="page" class="site"> 
+   <a class="skip-link screen-reader-text" href="#content">Skip to content</a> 
+   <!-- Preloader --> 
+   <div id="loader-wrapper"> 
+    <div id="loader"></div> 
+    <div class="loader-section section-left"></div> 
+    <div class="loader-section section-right"></div> 
+   </div> 
+   <header id="masthead" class="site-header" itemtype="https://schema.org/WPHeader" itemscope> 
+    <div class="overlay"></div> 
+    <div class="top-bar"> 
+     <a href="#" class="ct-show-hide-top"> <i class="fa fa-chevron-down"></i> </a> 
+     <div class="container-inner clearfix"> 
+      <div class="top-left-col clearfix"> 
+       <div class="ct-clock float-left"> 
+        <div id="ct-date">
+         Thursday, September 17, 2020
+        </div> 
+       </div> 
+      </div> 
+      <div class="top-right-col clearfix"> 
+      </div> 
+      <!-- .top-right-col --> 
+     </div> 
+     <!-- .container-inner --> 
+    </div> 
+    <!-- .top-bar --> 
+    <div class="logo-wrapper-block" style="background-image: url(images/default-header-image.jpg);"> 
+     <div class="container-inner clearfix logo-wrapper-container"> 
+      <div class="logo-wrapper full-wrapper text-center"> 
+       <div class="site-branding"> 
+        <div class="refined-magazine-logo-container"> 
+         <p class="site-title"><a href="https://www.ivdone.top/" rel="home">Life in Harbin &amp; 浪在冰城</a></p> 
+         <p class="site-description">人的一生应当这样度过，不因碌碌无为而羞愧，也不因虚度年华而悔恨！</p> 
+        </div> 
+        <!-- refined-magazine-logo-container --> 
+       </div>
+       <!-- .site-branding --> 
+      </div> 
+      <!-- .logo-wrapper --> 
+     </div> 
+     <!-- .container-inner --> 
+    </div> 
+    <!-- .logo-wrapper-block --> 
+    <div class="refined-magazine-menu-container sticky-header"> 
+     <div class="container-inner clearfix"> 
+      <nav id="site-navigation" class="main-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope> 
+       <div class="navbar-header clearfix"> 
+        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"> <span> </span> </button> 
+       </div> 
+       <ul id="primary-menu" class="nav navbar-nav nav-menu"> 
+        <li class=""><a href="https://www.ivdone.top/"> <i class="fa fa-home"></i> </a></li> 
+        <li id="menu-item-2076" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-2076"><a href="https://www.ivdone.top/">Home</a></li> 
+        <li id="menu-item-2040" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-2040"><a href="https://www.ivdone.top/article/category/os">OS</a> 
+         <ul class="sub-menu"> 
+          <li id="menu-item-2041" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2041"><a href="https://www.ivdone.top/article/category/os/cpu">CPU</a></li> 
+          <li id="menu-item-2042" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2042"><a href="https://www.ivdone.top/article/category/os/linux">Linux</a></li> 
+          <li id="menu-item-2043" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2043"><a href="https://www.ivdone.top/article/category/os/nginx">Nginx</a></li> 
+          <li id="menu-item-2044" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2044"><a href="https://www.ivdone.top/article/category/os/windows">Windows</a></li> 
+         </ul> </li> 
+        <li id="menu-item-2052" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-2052"><a href="https://www.ivdone.top/article/category/programming">Programming</a> 
+         <ul class="sub-menu"> 
+          <li id="menu-item-2053" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2053"><a href="https://www.ivdone.top/article/category/programming/android">Android</a></li> 
+          <li id="menu-item-2054" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2054"><a href="https://www.ivdone.top/article/category/programming/c-c">C/C++</a></li> 
+          <li id="menu-item-2055" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2055"><a href="https://www.ivdone.top/article/category/programming/c51">c51</a></li> 
+          <li id="menu-item-2056" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2056"><a href="https://www.ivdone.top/article/category/programming/django">Django</a></li> 
+          <li id="menu-item-2057" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2057"><a href="https://www.ivdone.top/article/category/programming/git">Git</a></li> 
+          <li id="menu-item-2058" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2058"><a href="https://www.ivdone.top/article/category/programming/htmljsjsp">Html/Javascript</a></li> 
+          <li id="menu-item-2059" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2059"><a href="https://www.ivdone.top/article/category/programming/java">Java</a></li> 
+          <li id="menu-item-2060" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2060"><a href="https://www.ivdone.top/article/category/programming/markdown">Markdown</a></li> 
+          <li id="menu-item-2061" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2061"><a href="https://www.ivdone.top/article/category/programming/matlab">MATLAB</a></li> 
+          <li id="menu-item-2062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2062"><a href="https://www.ivdone.top/article/category/programming/python">Python</a></li> 
+          <li id="menu-item-2063" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2063"><a href="https://www.ivdone.top/article/category/programming/socket">Socket</a></li> 
+          <li id="menu-item-2064" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2064"><a href="https://www.ivdone.top/article/category/programming/sql">Sql</a></li> 
+          <li id="menu-item-2065" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2065"><a href="https://www.ivdone.top/article/category/programming/tensorflow">tensorflow</a></li> 
+          <li id="menu-item-2066" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2066"><a href="https://www.ivdone.top/article/category/programming/verilog">Verilog</a></li> 
+          <li id="menu-item-2067" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2067"><a href="https://www.ivdone.top/article/category/programming/assembly">Assembly</a></li> 
+         </ul> </li> 
+        <li id="menu-item-2046" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-2046"><a href="https://www.ivdone.top/article/category/contest">Contest</a> 
+         <ul class="sub-menu"> 
+          <li id="menu-item-2047" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2047"><a href="https://www.ivdone.top/article/category/contest/acm">ACM</a></li> 
+          <li id="menu-item-2048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2048"><a href="https://www.ivdone.top/article/category/contest/igem">IGEM</a></li> 
+          <li id="menu-item-2049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2049"><a href="https://www.ivdone.top/article/category/contest/leetcode">Leetcode</a></li> 
+          <li id="menu-item-2050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2050"><a href="https://www.ivdone.top/article/category/contest/freescale">Freescale</a></li> 
+         </ul> </li> 
+        <li id="menu-item-2070" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-2070"><a href="https://www.ivdone.top/article/category/courses">Courses</a> 
+         <ul class="sub-menu"> 
+          <li id="menu-item-2071" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2071"><a href="https://www.ivdone.top/article/category/courses/design-and-analysis-of-algorithms">Design and Analysis of Algorithms</a></li> 
+          <li id="menu-item-2072" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2072"><a href="https://www.ivdone.top/article/category/courses/system-architecture">System Architecture</a></li> 
+          <li id="menu-item-2073" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2073"><a href="https://www.ivdone.top/article/category/courses/computer-network">Computer network</a></li> 
+          <li id="menu-item-2074" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2074"><a href="https://www.ivdone.top/article/category/courses/software-engineering">Software engineering</a></li> 
+         </ul> </li> 
+        <li id="menu-item-2051" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2051"><a href="https://www.ivdone.top/article/category/dl-rl">DL &amp; RL</a></li> 
+        <li id="menu-item-2069" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2069"><a href="https://www.ivdone.top/article/category/papers">Papers</a></li> 
+        <li id="menu-item-2037" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2037"><a href="https://www.ivdone.top/article/category/bigdata">BigData</a></li> 
+        <li id="menu-item-2045" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2045"><a href="https://www.ivdone.top/article/category/kirgiz">Kirgiz</a></li> 
+        <li id="menu-item-1862" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1862"><a href="https://www.ivdone.top/contact-us">Contact</a></li> 
+       </ul> 
+      </nav>
+      <!-- #site-navigation --> 
+      <div class="ct-menu-search">
+       <a class="search-icon-box" href="#"> <i class="fa fa-search"></i> </a>
+      </div> 
+      <div class="top-bar-search"> 
+       <form role="search" method="get" class="search-form" action="https://www.ivdone.top/"> 
+        <label> <span class="screen-reader-text">Search for:</span> <input type="search" class="search-field" placeholder="Search …" value="" name="s"> </label> 
+        <input type="submit" class="search-submit" value="Search"> 
+       </form> 
+       <button type="button" class="close"></button> 
+      </div> 
+     </div> 
+     <!-- .container-inner --> 
+    </div> 
+    <!-- refined-magazine-menu-container --> 
+   </header>
+   <!-- #masthead --> 
+   <div id="content" class="site-content"> 
+    <div class="container-inner ct-container-main clearfix"> 
+     <div id="primary" class="content-area"> 
+      <main id="main" class="site-main"> 
+       <div class="breadcrumbs"> 
+        <div class="breadcrumbs init-animate clearfix">
+         <span class="breadcrumb">You are Here</span>
+         <div id="refined-magazine-breadcrumbs" class="clearfix">
+          <div role="navigation" aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs" itemprop="breadcrumb">
+           <ul class="trail-items" itemscope itemtype="http://schema.org/BreadcrumbList">
+            <meta name="numberOfItems" content="2">
+            <meta name="itemListOrder" content="Ascending">
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="trail-item trail-begin"><a href="https://www.ivdone.top" rel="home"><span itemprop="name">Home</span></a>
+             <meta itemprop="position" content="1"></li>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="trail-item trail-end"><span itemprop="name">code-server / vs-code 如何离线安装插件</span>
+             <meta itemprop="position" content="2"></li>
+           </ul>
+          </div>
+         </div>
+        </div> 
+       </div> 
+       <article id="post-1098" class="post-1098 post type-post status-publish format-standard hentry category-problems" itemtype="https://schema.org/CreativeWork" itemscope> 
+        <div class="refined-magazine-content-container refined-magazine-no-thumbnail"> 
+         <div class="refined-magazine-content-area"> 
+          <header class="entry-header"> 
+           <div class="post-meta"> 
+            <span class="cat-links"><a class="ct-cat-item-90" href="https://www.ivdone.top/article/category/problems" rel="category tag">Problems</a> </span> 
+           </div> 
+           <h1 class="entry-title" itemprop="headline">code-server / vs-code 如何离线安装插件</h1> 
+           <div class="entry-meta"> 
+            <span class="posted-on"><i class="fa fa-calendar"></i><a href="https://www.ivdone.top/article/1098.html" rel="bookmark"><time class="entry-date published" datetime="2020-04-19T11:56:27+08:00" itemprop="datePublished">2020-04-19</time><time class="updated" datetime="2020-05-14T02:35:08+08:00" itemprop="dateModified">2020-05-14</time></a></span>
+            <span class="min-read"><i class="fa fa-clock-o" aria-hidden="true"></i>1 min read</span>
+            <span class="byline"> <span class="author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope><i class="fa fa-user"></i><a class="url fn n" href="https://www.ivdone.top/article/author/losha" rel="author"><span class="author-name" itemprop="name">花梓</span></a></span></span> 
+           </div>
+           <!-- .entry-meta --> 
+          </header>
+          <!-- .entry-header --> 
+          <div class="entry-content"> 
+           <p style="font-size:20px;text-indent:2em">我们在服务器端，比如阿里云，华为云等，部署在线的code-server代码编辑器，使用在线安装扩展插件下载，安装下载非常慢，这时我们可以安装离线的vs-code插件</p> 
+           <h2>1、下载相关插件</h2> 
+           <p style="font-size:20px;">官网下载链接：<a href="https://marketplace.visualstudio.com/VSCode" target="_blank" rel="noopener noreferrer">https://marketplace.visualstudio.com/VSCode</a></p> 
+           <p style="font-size:15px;">输入查询你要的插件：</p> 
+           <p><img src="images/1.jpg"></p> 
+           <p style="font-size:15px;">核对和下载插件：</p> 
+           <p><img src="images/2.jpg"><br> <img src="images/3.jpg"></p> 
+           <h2>2、安装插件</h2> 
+           <p style="font-size:20px;">将本地下载的插件上传到服务器相关的目录，如果你的服务器没有安装rz，sz的软件，当然你也可以用ftp软件，个人认为不是大文件用rz，sz特别方便，可以移步我的博客教程：<a href="/article/357.html" target="_blank" rel="noopener noreferrer">Linux下安装rz，sz教程</a></p> 
+           <pre><code class="language-shell line-numbers"># 用 rz命令上传
+rz -be 
+</code></pre> 
+           <p style="font-size:15px;">效果如下：</p> 
+           <p><img src="images/5.jpg"></p> 
+           <p style="font-size:20px;">安装：</p> 
+           <p style="font-size:15px;">从你的刚刚上传的目录下选择对应的插件即可，然后会自动安装，安装之后要重新刷新载入</p> 
+           <p><img src="images/4.jpg"></p> 
+           <h2>3、测试</h2> 
+           <p style="font-size:20px;">效果如下：</p> 
+           <p><img src="images/6.jpg"></p> 
+           <div class="wpulike wpulike-robeen ">
+            <div class="wp_ulike_general_class wp_ulike_is_not_liked">
+             <button type="button" aria-label="Like Button" data-ulike-id="1098" data-ulike-nonce="11ca30ef06" data-ulike-type="likeThis" data-ulike-template="wpulike-robeen" data-ulike-display-likers="" data-ulike-disable-pophover="" class="wp_ulike_btn wp_ulike_put_image wp_likethis_1098"></button>
+             <span class="count-box">2+</span> 
+            </div>
+           </div> 
+           <div class="post-views post-1098 entry-meta"> 
+            <span class="post-views-icon dashicons dashicons-chart-bar"></span> 
+            <span class="post-views-label">Post Views: </span> 
+            <span class="post-views-count">1,834</span> 
+           </div> 
+          </div> 
+          <!-- .entry-content --> 
+          <footer class="entry-footer"> 
+          </footer>
+          <!-- .entry-footer --> 
+          <div class="meta_bottom"> 
+           <div class="text_share header-text">
+            Share
+           </div> 
+           <div class="post-share"> 
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.ivdone.top/article/1098.html"> <i class="fa fa-facebook"></i> Facebook </a> 
+            <a target="_blank" href="http://twitter.com/share?text=code-server%20/%20vs-code%20如何离线安装插件&amp;url=https://www.ivdone.top/article/1098.html"> <i class="fa fa-twitter"></i> Twitter </a> 
+            <a target="_blank" href="http://pinterest.com/pin/create/button/?url=https://www.ivdone.top/article/1098.html&amp;media=&amp;description=code-server%20/%20vs-code%20如何离线安装插件"> <i class="fa fa-pinterest"></i> Pinterest </a> 
+            <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;title=code-server%20/%20vs-code%20如何离线安装插件&amp;url=https://www.ivdone.top/article/1098.html"> <i class="fa fa-linkedin"></i> Linkedin </a> 
+           </div> 
+          </div> 
+         </div> 
+         <!-- .refined-magazine-content-area --> 
+        </div> 
+        <!-- .refined-magazine-content-container --> 
+       </article>
+       <!-- #post-1098 --> 
+       <nav class="navigation post-navigation" role="navigation" aria-label="Posts"> 
+        <h2 class="screen-reader-text">Post navigation</h2> 
+        <div class="nav-links">
+         <div class="nav-previous">
+          <a href="https://www.ivdone.top/article/1095.html" rel="prev">Thread 463 received signal SIGTRAP, Trace/breakpoint trap.</a>
+         </div>
+         <div class="nav-next">
+          <a href="https://www.ivdone.top/article/1107.html" rel="next">如何使用Nginx代理php服务，使用浏览器直接访问运行php文件</a>
+         </div>
+        </div> 
+       </nav> 
+       <div class="related-pots-block"> 
+        <h2 class="widget-title"> Related Posts </h2> 
+        <ul class="related-post-entries clearfix"> 
+         <li> 
+          <div class="featured-desc"> 
+           <h2 class="related-title"> <a href="https://www.ivdone.top/article/1746.html"> ssh error:ssh_exchange_identification: read: Connection reset by peer </a> </h2> 
+           <div class="entry-meta"> 
+            <span class="posted-on"><i class="fa fa-calendar"></i><a href="https://www.ivdone.top/article/1746.html" rel="bookmark"><time class="entry-date published" datetime="2020-06-01T22:31:13+08:00" itemprop="datePublished">2020-06-01</time><time class="updated" datetime="2020-06-01T22:31:31+08:00" itemprop="dateModified">2020-06-01</time></a></span> 
+           </div>
+           <!-- .entry-meta --> 
+          </div> </li> 
+         <li> 
+          <div class="featured-desc"> 
+           <h2 class="related-title"> <a href="https://www.ivdone.top/article/1322.html"> No module named ‘tensorflow.python.eager </a> </h2> 
+           <div class="entry-meta"> 
+            <span class="posted-on"><i class="fa fa-calendar"></i><a href="https://www.ivdone.top/article/1322.html" rel="bookmark"><time class="entry-date published updated" datetime="2020-05-01T16:50:04+08:00">2020-05-01</time></a></span> 
+           </div>
+           <!-- .entry-meta --> 
+          </div> </li> 
+         <li> 
+          <div class="featured-desc"> 
+           <h2 class="related-title"> <a href="https://www.ivdone.top/article/1320.html"> yaml.load()警告：YAMLLoadWarning: calling yaml.load() without Loader=… </a> </h2> 
+           <div class="entry-meta"> 
+            <span class="posted-on"><i class="fa fa-calendar"></i><a href="https://www.ivdone.top/article/1320.html" rel="bookmark"><time class="entry-date published updated" datetime="2020-05-01T16:46:57+08:00">2020-05-01</time></a></span> 
+           </div>
+           <!-- .entry-meta --> 
+          </div> </li> 
+        </ul> 
+       </div> 
+       <!-- .related-post-block --> 
+       <div id="comments" class="comments-area"> 
+        <h2 class="comments-title"> One thought on “<span>code-server / vs-code 如何离线安装插件</span>” </h2>
+        <!-- .comments-title --> 
+        <ol class="comment-list"> 
+         <li id="comment-308" class="comment even thread-even depth-1"> 
+          <article id="div-comment-308" class="comment-body" itemtype="https://schema.org/Comment" itemscope> 
+           <footer class="comment-meta"> 
+            <img alt="" src="/4d167c883d8d602874a655a048ce5999" srcset="https://secure.gravatar.com/avatar/4d167c883d8d602874a655a048ce5999?s=100&amp;d=monsterid&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50"> 
+            <div class="comment-author-info"> 
+             <div class="comment-author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope> 
+              <span itemprop="name" class="fn"><strong><a href="https://www.cravefreebies.com/free-stuff/" rel="external nofollow ugc" class="url">Free Stuff</a></strong></span> 
+             </div>
+             <!-- .comment-author --> 
+             <div class="entry-meta comment-metadata"> 
+              <span><i class="fa fa-calendar"></i><a href="https://www.ivdone.top/article/1098.html#comment-308"> <time datetime="2020-06-10T15:34:18+08:00" itemprop="datePublished"> 2020-06-10 at 3:34 pms </time> </a></span> 
+              <span class="reply"><i class="fa fa-comment-o"></i> <a rel="nofollow" class="comment-reply-link" href="https://www.ivdone.top/article/1098.html?replytocom=308#respond" data-commentid="308" data-postid="1098" data-belowelement="div-comment-308" data-respondelement="respond" aria-label="Reply to Free Stuff">Reply</a></span> 
+             </div>
+             <!-- .comment-metadata --> 
+            </div>
+            <!-- .comment-author-info --> 
+           </footer>
+           <!-- .comment-meta --> 
+           <div class="comment-content" itemprop="text"> 
+            <p>Good day! This is my first visit to your blog! We are a team of volunteers and starting a new initiative in a community in the same niche. Your blog provided us valuable information to work on. You have done a extraordinary job! </p> 
+            <div class="wpulike wpulike-default "> 
+             <div class="wp_ulike_general_class wp_ulike_is_not_liked">
+              <button type="button" aria-label="Like Button" data-ulike-id="308" data-ulike-nonce="7bdd393474" data-ulike-type="likeThisComment" data-ulike-template="wpulike-default" data-ulike-display-likers="" data-ulike-disable-pophover="" class="wp_ulike_btn wp_ulike_put_image wp_likethiscomment_308"></button>
+              <span class="count-box">0</span> 
+             </div> 
+            </div> 
+           </div>
+           <!-- .comment-content --> 
+          </article>
+          <!-- .comment-body --> </li>
+         <!-- #comment-## --> 
+        </ol>
+        <!-- .comment-list --> 
+        <div id="respond" class="comment-respond"> 
+         <h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/article/1098.html#respond" style="display:none;">Cancel reply</a></small></h3>
+         <form action="https://www.ivdone.top/wordpress/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+          <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span></p>
+          <p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea></p>
+          <p class="comment-form-author"><label for="author">Name</label> <input id="author" name="author" type="text" value="" size="30" maxlength="245"></p> 
+          <p class="comment-form-email"><label for="email">Email</label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes"></p> 
+          <p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200"></p> 
+          <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="1098" id="comment_post_ID"> <input type="hidden" name="comment_parent" id="comment_parent" value="0"> </p>
+         </form> 
+        </div>
+        <!-- #respond --> 
+       </div>
+       <!-- #comments --> 
+      </main>
+      <!-- #main --> 
+     </div>
+     <!-- #primary --> 
+     <aside id="secondary" class="widget-area" itemtype="https://schema.org/WPSideBar" itemscope> 
+      <div class="ct-sidebar-wrapper"> 
+       <div class="sidebar-widget-container">
+        <section id="text-7" class="widget widget_text">
+         <h2 class="widget-title">My social links</h2> 
+         <div class="textwidget">
+          <p>【QQ】757264690<br> 【Github】<a href="https://github.com/Brodong" target="_blank" rel="noopener noreferrer">Brodong</a><br> 【Email】<a href="mailto:757264690@qq.com" target="_blank" rel="noopener noreferrer">757264690@qq.com</a></p> 
+         </div> 
+        </section>
+       </div> 
+       <div class="sidebar-widget-container">
+        <section id="post_views_counter_list_widget-6" class="widget widget_post_views_counter_list_widget">
+         <h2 class="widget-title">Most viewed posts</h2>
+         <ol> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/120.html">在中国如何使用谷歌搜索？</a> <span class="count">(17,639)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/156.html">Ubuntu 19.10 搜狗输入法乱码</a> <span class="count">(2,978)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/97.html">正在检测目标单片机…</a> <span class="count">(2,214)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/230.html">汇编程序——在屏幕上显示一个字符串“Hello”</a> <span class="count">(2,151)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/227.html">单片机移位操作；_crol_ 和_cror_ 的使用</a> <span class="count">(1,909)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/1098.html">code-server / vs-code 如何离线安装插件</a> <span class="count">(1,834)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/662.html">Linux下部署线上code-server代码编辑器</a> <span class="count">(1,650)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/283.html">树莓派中安装python版本的opencv</a> <span class="count">(1,561)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/1544.html">centos7安装libicu-dev，libpango1.0-dev，libcairo2-dev</a> <span class="count">(1,556)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/251.html">编制一个程序把BX寄存器内的二进制数用十六进制的形式在屏幕上显示出来</a> <span class="count">(1,461)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/249.html">数码管动态显示123456</a> <span class="count">(1,454)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/223.html">飞思卡尔智能车——舵机及PID控制</a> <span class="count">(1,398)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/815.html">CentOS 8 / RHEL 8 安装mysql5.7和8.0</a> <span class="count">(1,244)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/255.html">汇编程序——把数据段中的串string1传送到附加段的string2中</a> <span class="count">(1,243)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/32.html">NP与计算的难解性</a> <span class="count">(1,208)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/1538.html">centos7安装Tesseract-OCR 4.1 报错 configure: error: Leptonica 1.74 or higher is required. 解决方法</a> <span class="count">(1,186)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/139.html">Why we should learn Linux kernel?</a> <span class="count">(1,166)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/415.html">python 判断文件是否存在</a> <span class="count">(1,123)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/357.html">Linux下源码安装（树莓派）安装sz ,rz软件</a> <span class="count">(1,112)</span> </li> 
+          <li> <a class="post-title" href="https://www.ivdone.top/article/150.html">How is China dealing with coronavirus?</a> <span class="count">(1,010)</span> </li>
+         </ol>
+        </section>
+       </div> 
+       <div class="sidebar-widget-container">
+        <section id="recent-posts-11" class="widget widget_recent_entries"> 
+         <h2 class="widget-title">Newly posts</h2> 
+         <ul> 
+          <li> <a href="https://www.ivdone.top/article/2079.html">论文阅读：Rewriting a Deep Generative Model</a> </li> 
+          <li> <a href="https://www.ivdone.top/article/2007.html">dddd</a> </li> 
+          <li> <a href="https://www.ivdone.top/article/1994.html">可编程气球——Kirigami气球</a> </li> 
+          <li> <a href="https://www.ivdone.top/article/1986.html">[姚文辉课程笔记]大规模分布式存储系统的混合存储</a> </li> 
+          <li> <a href="https://www.ivdone.top/article/1984.html">姚文辉课程笔记]大规模分布式存储系统的高可用和可扩展方案</a> </li> 
+          <li> <a href="https://www.ivdone.top/article/1982.html">[姚文辉课程笔记]Erasure Coding编码</a> </li> 
+          <li> <a href="https://www.ivdone.top/article/1980.html">[姚文辉课程笔记]大规模分布式存储系统的数据正确性、数据可靠性、数据均衡、垃圾回收</a> </li> 
+          <li> <a href="https://www.ivdone.top/article/1978.html">[姚文辉课程笔记]大规模分布式存储系统的服务质量</a> </li> 
+          <li> <a href="https://www.ivdone.top/article/1976.html">[姚文辉课程笔记]大规模分布式存储系统的读流程和读流程优化</a> </li> 
+          <li> <a href="https://www.ivdone.top/article/1974.html">[姚文辉课程笔记]链式写流程与主从模式写流程</a> </li> 
+          <li> <a href="https://www.ivdone.top/article/1972.html">[姚文辉课程笔记]大规模分布式存储系统的重要功能设计</a> </li> 
+          <li> <a href="https://www.ivdone.top/article/1970.html">[姚文辉课程笔记]大规模分布式存储系统的举例</a> </li> 
+          <li> <a href="https://www.ivdone.top/article/1967.html">[姚文辉课程笔记]大规模分布式存储系统的挑战</a> </li> 
+          <li> <a href="https://www.ivdone.top/article/1964.html">[姚文辉课程笔记]大数据对分布式存储系统需求</a> </li> 
+          <li> <a href="https://www.ivdone.top/article/1959.html">大数据的步骤、应用、系统的分类、难点</a> </li> 
+         </ul> 
+        </section>
+       </div> 
+       <div class="sidebar-widget-container">
+        <section id="wp_ulike-2" class="widget widget_wp_ulike">
+         <h2 class="widget-title">Most popular posts</h2>
+         <ul class="most_liked_post wp_ulike_style_love">
+          <li> <a href="https://www.ivdone.top/article/120.html">在中国如何使用谷歌搜索？</a> </li>
+          <li> <a href="https://www.ivdone.top/article/156.html">Ubuntu 19.10 搜狗输入法乱码</a> </li>
+          <li> <a href="https://www.ivdone.top/article/662.html">Linux下部署线上code-server代码编辑器</a> </li>
+          <li> <a href="https://www.ivdone.top/article/1098.html">code-server / vs-code 如何离线安装插件</a> </li>
+          <li> <a href="https://www.ivdone.top/article/1994.html">可编程气球——Kirigami气球</a> </li>
+         </ul>
+        </section>
+       </div> 
+       <div class="sidebar-widget-container">
+        <section id="recent-comments-6" class="widget widget_recent_comments">
+         <h2 class="widget-title">Comments</h2>
+         <ul id="recentcomments">
+          <li class="recentcomments"><span class="comment-author-link"><a href="http://www.psbstyle.mojkgb.com/fluxbb/profile.php?id=143166" rel="external nofollow ugc" class="url">ver la raíz de instagram privada</a></span> on <a href="https://www.ivdone.top/article/230.html#comment-1722">汇编程序——在屏幕上显示一个字符串“Hello”</a></li>
+          <li class="recentcomments"><span class="comment-author-link"><a href="https://pinterest.com/pin/653725702154338773/" rel="external nofollow ugc" class="url">Parthenia</a></span> on <a href="https://www.ivdone.top/article/459.html#comment-1720">SAT和3-SAT</a></li>
+          <li class="recentcomments"><span class="comment-author-link"><a href="https://www.examsgeek.com/" rel="external nofollow ugc" class="url">Examsgeek.com</a></span> on <a href="https://www.ivdone.top/article/230.html#comment-1716">汇编程序——在屏幕上显示一个字符串“Hello”</a></li>
+          <li class="recentcomments"><span class="comment-author-link"><a href="https://medium.com/@garenafreefirecheat" rel="external nofollow ugc" class="url">garena free fire cheats ios</a></span> on <a href="https://www.ivdone.top/article/253.html#comment-1715">51单片机蜂鸣器操作</a></li>
+          <li class="recentcomments"><span class="comment-author-link"><a href="https://uberant.com/article/784622-most-premium-quality-road-bikes-under-the-budget-of-0/" rel="external nofollow ugc" class="url">best road bikes under pound 1000</a></span> on <a href="https://www.ivdone.top/article/459.html#comment-1714">SAT和3-SAT</a></li>
+          <li class="recentcomments"><span class="comment-author-link"><a href="https://www.newszii.com/vertical-climber-machines-or-recumbent-bikes/" rel="external nofollow ugc" class="url">schwinn recumbent bike reviews</a></span> on <a href="https://www.ivdone.top/article/253.html#comment-1713">51单片机蜂鸣器操作</a></li>
+          <li class="recentcomments"><span class="comment-author-link"><a href="https://www.pinterest.com/pin/591660469785257232/" rel="external nofollow ugc" class="url">tennis clash gems cheat</a></span> on <a href="https://www.ivdone.top/article/253.html#comment-1712">51单片机蜂鸣器操作</a></li>
+          <li class="recentcomments"><span class="comment-author-link"><a href="http://alumni.skule.ca/members/touchturn59/activity/400388/" rel="external nofollow ugc" class="url">best led work lights for tractors</a></span> on <a href="https://www.ivdone.top/article/253.html#comment-1710">51单片机蜂鸣器操作</a></li>
+          <li class="recentcomments"><span class="comment-author-link"><a href="https://christiantoday.com/article/how.to.stay.fit.while.working.from.home/129850.htm" rel="external nofollow ugc" class="url">elliptical machine for home</a></span> on <a href="https://www.ivdone.top/article/253.html#comment-1709">51单片机蜂鸣器操作</a></li>
+          <li class="recentcomments"><span class="comment-author-link"><a href="http://systemicfiscalreform.org/" rel="external nofollow ugc" class="url">idn poker apk versi terbaru</a></span> on <a href="https://www.ivdone.top/article/253.html#comment-1702">51单片机蜂鸣器操作</a></li>
+         </ul>
+        </section>
+       </div> 
+       <div class="sidebar-widget-container">
+        <section id="categories-9" class="widget widget_categories">
+         <h2 class="widget-title">Categories</h2>
+         <form action="https://www.ivdone.top" method="get">
+          <label class="screen-reader-text" for="cat">Categories</label>
+          <select name="cat" id="cat" class="postform"> <option value="-1">Select Category</option> <option class="level-0" value="80">ACM</option> <option class="level-0" value="84">AdSense</option> <option class="level-0" value="75">Android</option> <option class="level-0" value="77">Assembly</option> <option class="level-0" value="62">BigData</option> <option class="level-0" value="56">C/C++</option> <option class="level-0" value="81">c51</option> <option class="level-0" value="76">Computer network</option> <option class="level-0" value="68">Design and Analysis of Algorithms</option> <option class="level-0" value="66">Django</option> <option class="level-0" value="53">DL &amp; RL</option> <option class="level-0" value="78">Freescale</option> <option class="level-0" value="93">Git</option> <option class="level-0" value="63">Html/Javascript</option> <option class="level-0" value="72">IGEM</option> <option class="level-0" value="57">Java</option> <option class="level-0" value="86">Kirgiz</option> <option class="level-0" value="88">Leetcode</option> <option class="level-0" value="74">Life</option> <option class="level-0" value="60">Linux</option> <option class="level-0" value="87">Markdown</option> <option class="level-0" value="83">MATLAB</option> <option class="level-0" value="79">Nginx</option> <option class="level-0" value="54">Papers</option> <option class="level-0" value="90">Problems</option> <option class="level-0" value="58">Python</option> <option class="level-0" value="85">Socket</option> <option class="level-0" value="92">Software engineering</option> <option class="level-0" value="64">Sql</option> <option class="level-0" value="91">System Architecture</option> <option class="level-0" value="65">tensorflow</option> <option class="level-0" value="73">Tools</option> <option class="level-0" value="67">Wordpress</option> <option class="level-0" value="1">系统</option> </select> 
+         </form> 
+         <script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+	var dropdown = document.getElementById( "cat" );
+	function onCatChange() {
+		if ( dropdown.options[ dropdown.selectedIndex ].value > 0 ) {
+			dropdown.parentNode.submit();
+		}
+	}
+	dropdown.onchange = onCatChange;
+})();
+/* ]]> */
+</script> 
+        </section>
+       </div> 
+       <div class="sidebar-widget-container">
+        <section id="meta-6" class="widget widget_meta">
+         <h2 class="widget-title">RSS</h2> 
+         <ul> 
+          <li><a href="https://www.ivdone.top/wordpress/wp-login.php">Log in</a></li> 
+          <li><a href="https://www.ivdone.top/feed">Entries feed</a></li> 
+          <li><a href="https://www.ivdone.top/comments/feed">Comments feed</a></li> 
+          <li><a href="https://wordpress.org/">WordPress.org</a></li> 
+         </ul> 
+        </section>
+       </div> 
+       <div class="sidebar-widget-container">
+        <section id="search-5" class="widget widget_search">
+         <form role="search" method="get" class="search-form" action="https://www.ivdone.top/"> 
+          <label> <span class="screen-reader-text">Search for:</span> <input type="search" class="search-field" placeholder="Search …" value="" name="s"> </label> 
+          <input type="submit" class="search-submit" value="Search"> 
+         </form>
+        </section>
+       </div> 
+       <div class="sidebar-widget-container">
+        <section id="tag_cloud-2" class="widget widget_tag_cloud">
+         <h2 class="widget-title">Tag Cloud</h2>
+         <div class="tagcloud">
+          <a href="https://www.ivdone.top/article/tag/java" class="tag-cloud-link tag-link-46 tag-link-position-1" style="font-size: 12px;">java</a> 
+          <a href="https://www.ivdone.top/article/tag/np" class="tag-cloud-link tag-link-5 tag-link-position-2" style="font-size: 12px;">NP</a> 
+          <a href="https://www.ivdone.top/article/tag/npc" class="tag-cloud-link tag-link-6 tag-link-position-3" style="font-size: 12px;">NPC</a> 
+          <a href="https://www.ivdone.top/article/tag/p" class="tag-cloud-link tag-link-4 tag-link-position-4" style="font-size: 12px;">P</a> 
+          <a href="https://www.ivdone.top/article/tag/wordpress" class="tag-cloud-link tag-link-51 tag-link-position-5" style="font-size: 12px;">wordpress</a> 
+          <a href="https://www.ivdone.top/article/tag/%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92" class="tag-cloud-link tag-link-29 tag-link-position-6" style="font-size: 12px;">动态规划</a> 
+          <a href="https://www.ivdone.top/article/tag/%e5%8d%95%e8%b0%83%e6%a0%88" class="tag-cloud-link tag-link-28 tag-link-position-7" style="font-size: 12px;">单调栈</a>
+         </div> 
+        </section>
+       </div> 
+       <div class="widget_text sidebar-widget-container">
+        <section id="custom_html-15" class="widget_text widget widget_custom_html">
+         <div class="textwidget custom-html-widget"> 
+          <div id="cj_wrapper" style="margin: 0px auto; max-width: 360px;"> 
+           <h4 style="margin: 0.75em 0px 0px; font-size: 1.25em; line-height: 1.5em; font-weight: bold; color: #6d6e70; font-family: -apple-system, blinkmacsystemfont, 'segoe ui', roboto, oxygen, ubuntu, cantarell, 'fira sans', 'droid sans', 'helvetica neue', sans-serif;">搜域名，$0.88起！</h4> 
+           <form id="cj_form" method="GET" target="_blank" action="https://www.anrdoezrs.net/links/100142989/type/dlg/https://www.namecheap.com/domains/registration/results.aspx"> 
+            <div class="nc-search" role="search" style="position: relative; display: flex; flex-flow: row wrap; margin: 0px auto; padding: 0.75em 0px 0px; font-family: -apple-system, blinkmacsystemfont, 'segoe ui', roboto, oxygen, ubuntu, cantarell, 'fira sans', 'droid sans', 'helvetica neue', sans-serif;"> 
+             <input id="cj_domain" name="domain" style="flex: 1 1 0%; min-width: 60px; min-height: 42px; padding: 0px 0.5em; border: 1px solid #d6d6d6; font-size: 1.125em; line-height: 20px; margin-right: 0px !important; margin-top: 0px !important; border-top-left-radius: 5px !important; border-top-right-radius: 0px !important; border-bottom-right-radius: 0px !important; border-bottom-left-radius: 5px !important;" autocomplete="off" placeholder="e.g. example.com" autocorrect="off" spellcheck="false" autocapitalize="off" type="text">
+             <input style="flex: 0 1 0%; min-width: 94px; width: 94px; padding: 0px 1em; font-size: 1.125em; line-height: 20px; text-align: center; border: 1px solid rgb(222, 55, 35); color: rgb(255, 255, 255); text-shadow: rgb(222, 55, 35) 0px -1px 1px; background: linear-gradient(rgb(253, 79, 0) 0%, rgb(222, 55, 35) 100%); cursor: pointer; min-height: 42px !important; margin-left: 0px !important; margin-top: 0px !important; border-radius: 0px 5px 5px 0px !important;" value="Search" type="submit"> 
+            </div> 
+           </form> 
+           <div class="powerby"> 
+            <p style="margin: 1em 0px 0px; font-size: 0.75em; line-height: 1.25em; color: #6d6e70; font-family: -apple-system, blinkmacsystemfont, 'segoe ui', roboto, oxygen, ubuntu, cantarell, 'fira sans', 'droid sans', 'helvetica neue', sans-serif; text-align: left;">powered by <a id="cj_url" href="https://www.anrdoezrs.net/links/100142989/type/dlg/https://www.namecheap.com/" target="_blank" style="font-weight: bold; color: #de3723; text-decoration: none;" rel="noopener noreferrer">Namecheap</a><br>此网站支持人民币支付！</p> 
+           </div> 
+          </div> 
+          <script>     !function(){ var e=document.querySelector("#cj_form"); e.addEventListener("submit",function(o){ o.preventDefault(); if(e.domain.value === ""){ window.location.href = document.querySelector("#cj_url").href; } else{ e.submit(); } }) }();</script> 
+         </div>
+        </section>
+       </div> 
+       <div class="widget_text sidebar-widget-container">
+        <section id="custom_html-3" class="widget_text widget widget_custom_html">
+         <div class="textwidget custom-html-widget">
+          <a href="https://www.tkqlhce.com/74102xdmjdl0211253A9A025437314" target="_blank" rel="noopener noreferrer"> <img src="/hq105z15u-yJLKKLOMTSTJLONMQMKN" alt="Take pride and register a .GAY domain today!" border="0" style="width: 100%;"></a> 
+          <a href="https://www.anrdoezrs.net/49116efolfn2433475CBC247659594" target="_blank" rel="noopener noreferrer"> <img src="/5n101ax0pvtEGFFGJHONOEGJIHLHLG" alt="Popular Domains for just 99 Cents at Namecheap!" border="0" style="width: 100%;"></a> 
+          <a href="https://www.dpbolvw.net/m1116biroiq57667A8FEF5798CCCE9" target="_blank" rel="noopener noreferrer"> <img src="/b274jy1qwuFHGGHKIPOPFHJIMMMOJ" alt="SSL Certificate for just $8.88 with Namecheap" border="0" style="width: 100%;"></a> 
+         </div>
+        </section>
+       </div> 
+       <div class="widget_text sidebar-widget-container">
+        <section id="custom_html-18" class="widget_text widget widget_custom_html">
+         <div class="textwidget custom-html-widget">
+          <a href="https://www.anrdoezrs.net/ca110kjspjr68778B9GFG68BA8G88A" target="_blank" rel="noopener noreferrer"> <img src="/7b66fz2rxvGIHHILJQPQGILKIQIIK" alt="" border="0" style="width: 100%;"></a> 
+          <a href="https://www.tkqlhce.com/ip105kjspjr68778B9GFG68BA9BEFF" target="_blank" rel="noopener noreferrer"> <img src="/do98ltxlrpACBBCFDKJKACFEDFIJJ" alt="" border="0" style="width: 100%;"></a> 
+         </div>
+        </section>
+       </div> 
+       <div class="widget_text sidebar-widget-container">
+        <section id="custom_html-16" class="widget_text widget widget_custom_html">
+         <div class="textwidget custom-html-widget">
+          <a href="https://www.anrdoezrs.net/o398p-85-7NPOOPSQXWXNPRQUUUUX" target="_blank" rel="noopener noreferrer"> <img src="/gs79z15u-yJLKKLOMTSTJLNMQQQQT" alt="Search and buy domains from Namecheap" border="0" style="width: 100%;"></a>
+         </div>
+        </section>
+       </div> 
+      </div> 
+     </aside>
+     <!-- #secondary --> 
+    </div> 
+    <!-- .container-inner --> 
+   </div>
+   <!-- #content --> 
+   <footer id="colophon" class="site-footer"> 
+    <div class="site-info" itemtype="https://schema.org/WPFooter" itemscope> 
+     <div class="container-inner"> 
+      <span class="copy-right-text">Copyright © 2020 Life in Harbin &amp; 浪在冰城 津ICP备20001098号-2</span>
+      <br> 
+      <a href="https://wordpress.org/" target="_blank"> Proudly powered by WordPress </a> 
+      <span class="sep"> | </span> Theme: Refined Magazine by 
+      <a href="https://www.candidthemes.com/" target="_blank">Candid Themes</a>. 
+     </div> 
+     <!-- .container-inner --> 
+    </div>
+    <!-- .site-info --> 
+   </footer>
+   <!-- #colophon --> 
+   <a id="toTop" class="go-to-top" href="#" title="Go to Top"> <i class="fa fa-angle-double-up"></i> </a> 
+  </div>
+  <!-- #page --> 
+  <script type="text/javascript">
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"Auto"};
+/* ]]> */
+</script> 
+  <script type="text/javascript" src="js/front.min.js"></script> 
+  <script type="text/javascript" src="js/katex.min.js"></script> 
+  <script type="text/javascript" src="js/emojify.min.js"></script> 
+  <script type="text/javascript" src="js/clipboard.min.js"></script> 
+  <script type="text/javascript" src="js/prism-core.min.js"></script> 
+  <script type="text/javascript" src="js/prism-autoloader.min.js"></script> 
+  <script type="text/javascript" src="js/prism-toolbar.min.js"></script> 
+  <script type="text/javascript" src="js/prism-line-numbers.min.js"></script> 
+  <script type="text/javascript" src="js/prism-show-language.min.js"></script> 
+  <script type="text/javascript" src="js/prism-copy-to-clipboard.min.js"></script> 
+  <script type="text/javascript">
+/* <![CDATA[ */
+var wp_ulike_params = {"ajax_url":"https:\/\/www.ivdone.top\/wordpress\/wp-admin\/admin-ajax.php","notifications":"1"};
+/* ]]> */
+</script> 
+  <script type="text/javascript" src="js/wp-ulike.min.js"></script> 
+  <script type="text/javascript" src="js/slick.min.js"></script> 
+  <script type="text/javascript" src="js/core.min.js"></script> 
+  <script type="text/javascript" src="js/widget.min.js"></script> 
+  <script type="text/javascript" src="js/tabs.min.js"></script> 
+  <script type="text/javascript" src="js/navigation.js"></script> 
+  <script type="text/javascript" src="js/jquery.marquee.js"></script> 
+  <script type="text/javascript" src="js/skip-link-focus-fix.js"></script> 
+  <script type="text/javascript" src="js/theia-sticky-sidebar.js"></script> 
+  <script type="text/javascript" src="js/comment-reply.min.js"></script> 
+  <script type="text/javascript" src="js/refined-magazine-custom.js"></script> 
+  <script type="text/javascript" src="js/wp-embed.min.js"></script> 
+  <script type="text/javascript">
+            (function ($) {
+                $(document).ready(function () {
+                    $(".katex.math.inline").each(function () {
+                        var parent = $(this).parent()[0];
+                        if (parent.localName !== "code") {
+                            var texTxt = $(this).text();
+                            var el = $(this).get(0);
+                            try {
+                                katex.render(texTxt, el);
+                            } catch (err) {
+                                $(this).html("<span class=\"err\">" + err);
+                            }
+                        } else {
+                            $(this).parent().text($(this).parent().text());
+                        }
+                    });
+                    $(".katex.math.multi-line").each(function () {
+                        var texTxt = $(this).text();
+                        var el = $(this).get(0);
+                        try {
+                            katex.render(texTxt, el, {displayMode: true})
+                        } catch (err) {
+                            $(this).html("<span class=\"err\">" + err)
+                        }
+                    });
+                })
+            })(jQuery);
+        </script> 
+  <script type="text/javascript">
+            window.onload = function () {
+                emojify.setConfig({
+                    img_dir: "https://cdn.jsdelivr.net/wp/wp-editormd/tags/10.1.2/assets/Emojify.js/images/basic",//前端emoji资源地址
+                    blacklist: {
+                        "ids": [],
+                        "classes": ["no-emojify"],
+                        "elements": ["^script$", "^textarea$", "^pre$", "^code$"]
+                    }
+                });
+                emojify.run();
+            }
+		</script> 
+  <script type="text/javascript">
+			Prism.plugins.autoloader.languages_path = "https://cdn.jsdelivr.net/wp/wp-editormd/tags/10.1.2/assets/Prism.js/components/";
+		</script>   
+ </body>
+</html>

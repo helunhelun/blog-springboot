@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en"  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- css 文件 -->
+    <link rel="shortcut icon" th:href="@{/static/favicon.ico}" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/static/wp-admin/lib/bootstrap/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/static/wp-admin/css/main.css}">
+    <link rel="stylesheet" th:href="@{/static/wp-admin/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/static/wp-admin/css/font-icon.css}">
+    <!-- 子模块css部分 -->
+    <div layout:fragment="css">
+
+    </div>
+    <!-- 子模块title -->
+    <div layout:fragment="title">
+
+    </div>
+
+</head>
+<body>
+
+<!--导航-->
+<nav class="navbar navbar-expand-lg navbar-light nav-color-nav  navbar-lk text-dark">
+    <div class="container">
+        <a class="navbar-brand xiyuan" href="#">
+            <p>
+                <em><span style="color: rgb(192, 0, 0); font-size: 36px; font-family: 宋体, SimSun;">博客后台管理系统</span><span style="font-size: 36px;"><span style="color: rgb(192, 0, 0); font-family: 隶书, SimLi;"></span><span style="color: rgb(192,0,0);"></span></span></em>
+            </p>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nabmune" aria-controls="nabmune" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="nabmune">
+            <ul class="navbar-nav nav-color ">
+                <li class="nav-item active ">
+                    <a class="nav-link" href="/">首页 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active ">
+                    <a class="nav-link" href="/wp-admin/index">管理首页 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/wp-admin/ImageLibrary">图像库</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/wp-admin/ct">目录 & 标签</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/wp-admin/ArticleCreate">写文章</a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="/wp-admin/ArticleAdmin">文章管理</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/admin/logout">退出系统</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/wp-admin/about">关于我</a>
+                </li>
+            </ul>
+            <!--<form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>-->
+        </div>
+    </div>
+</nav>
+
+<!--内容-->
+<div class="container mt-3 ">
+    <!-- 子模板需重写这个区域 -->
+    <div class="row" layout:fragment="content">
+    </div>
+    <!-- Modal  消息提示框 -->
+    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="messageModalTitle">提示信息</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="message-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--底部-->
+<footer id="footer">
+    <div class="foot-nav text-center">
+        <div class="copy-right"><span>Copyright © www.example.com </span></div>
+        <div class="bottom-nav">
+            <a href="http://www.beian.miit.gov.cn/"><span>津ICP备00000001号</span></a>
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script th:src="@{/static/wp-admin/lib/jquery/jquery.js}"></script>
+<script th:src="@{/static/wp-admin/lib/bootstrap/js/bootstrap.js}"></script>
+<script th:src="@{/static/wp-admin/js/wow.js}"></script>
+
+
+
+<script>
+    new WOW().init();//把wow初始化
+
+</script>
+<!-- 子模块js部分 -->
+<div layout:fragment="js">
+
+</div>
+
+
+</body>
+</html>
