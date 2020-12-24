@@ -70,6 +70,10 @@ server.tomcat.threads.max=200
 
 ![image](https://github.com/helunhelun/blog_sprinigboot/blob/master/20201224134100.png)
 
+![image](https://github.com/helunhelun/blog_sprinigboot/blob/master/20201224134204.png)
+
+![image](https://github.com/helunhelun/blog_sprinigboot/blob/master/20201224134237.png)
+
 
 
 
