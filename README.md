@@ -68,6 +68,10 @@ server.tomcat.threads.max=200
 
 <p style="font-size:20px;">部分运行界面</p>
 
+![image](https://github.com/helunhelun/blog_sprinigboot/blob/master/20201224134100.png)
+
+
+
 
 
 
