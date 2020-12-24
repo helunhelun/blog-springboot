@@ -62,7 +62,7 @@ server.tomcat.threads.max=200
 
 ## 5、我的网站
 
-<p style="font-size:20px;">、具体运行效果可以查看我的网站: <a href="https://www.ivdone.cn">https://www.ivdone.cn</a></p>
+<p style="font-size:20px;">具体运行效果可以查看我的网站: <a href="https://www.ivdone.cn">https://www.ivdone.cn</a></p>
 
 <p style="font-size:20px;">部分运行界面</p>
 
