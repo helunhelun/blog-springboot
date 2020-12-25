@@ -3,7 +3,7 @@
 ## 1、下载代码
 
 ```shell
-git clone https://github.com/helunhelun/blog_sprinigboot.git
+git clone https://github.com/helunhelun/blog-springboot.git
 ```
 
 ## 2、新建数据库
