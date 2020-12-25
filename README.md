@@ -51,7 +51,7 @@ server.tomcat.max-connections=8192
 server.tomcat.threads.max=200
 ```
 
-<p style="font-size:20px;">我们使用idea中打开工程，运行maven重加载，下载相关的jar库</p>
+<p style="font-size:20px;">我们使用idea中打开工程，运行maven重加载，下载相关的jar包和插件</p>
 
 <p style="font-size:20px;">点击idea中右上角的运行按钮，运行即可</p>
 
