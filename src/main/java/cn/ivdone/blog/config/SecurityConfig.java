@@ -42,11 +42,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .defaultSuccessUrl("/wp-admin/index")
                 .permitAll()
+                .failureUrl("/login/error")
                 .and();
 
         http
                 .authorizeRequests()
-                .antMatchers("/wp-admin/**").hasRole("ADMIN")
+                .antMatchers("/wp-admin/userAdmin/get/username").authenticated()   // 用于获取当前用户
+                .antMatchers("/wp-admin/userAdmin/**").hasRole("ADMIN")  // 一定先配置小范围 再配置大范围的
+                .antMatchers("/wp-admin/**").authenticated()
+                //.antMatchers("/wp-admin/userAdmin/**").
                 .anyRequest().permitAll();
     }
 
