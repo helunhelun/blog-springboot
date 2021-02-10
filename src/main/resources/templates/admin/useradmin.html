@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en" layout:decorator="admin/base" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<div layout:fragment="title">
+    <title>用户管理</title>
+</div>
+
+<div class="container" layout:fragment="content">
+    <h2 style="text-align: center;color:red;">用户管理 <span style="color: red;">（注：修改管理员用户密码需要填写原密码）</span></h2>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userModifyModel" data-type="add">
+        新增用户
+    </button>
+    <table class="table table-bordered">
+        <thead>
+        <th>用户名</th>
+        <th>昵称</th>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>邮箱</th>
+        <th>管理员权限</th>
+        <th> 操作 </th>
+        </thead>
+        <tbody>
+        <tr th:each="user:${userList}">
+            <td th:text="${user.getUsername()}"></td>
+            <td th:text="${user.getNickname()}"></td>
+            <td th:text="${user.getFirstname()}"></td>
+            <td th:text="${user.getLastname()}"></td>
+            <td th:text="${user.getEmail()}"></td>
+            <td th:if="${user.getIs_stuff()}">是</td>
+            <td th:if="${user.getIs_stuff() == false}">否</td>
+            <td>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userModifyModel"
+                        th:data-username="${user.getUsername()}" th:data-nickname="${user.getNickname()}" th:data-firstname="${user.getFirstname()}"
+                        th:data-lastname="${user.getLastname()}" th:data-email="${user.getEmail()}" th:data-admin="${user.getIs_stuff()}">
+                    修改
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userDeleteModal" th:data-username="${user.getUsername()}" >
+                删除
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modifyPasswordModel" th:data-username="${user.getUsername()}" >
+                    修改密码
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="modal fade" id="userModifyModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="userModifyModelMessage">修改用户信息</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/wp-admin/userAdmin/modify" method="POST" enctype="multipart/form-data" id="submit-form" readonly="">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="username">用户名</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="zhangsan" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstname">firstname</label>
+                                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="zhang" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">lastname</label>
+                                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="san" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nickname">昵称</label>
+                                <input type="text" class="form-control" id="nickname" name="nickname" placeholder="张三" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">密码</label>
+                                <input type="password" class="form-control" id="password" name="password" value="123456" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">邮箱</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="zhangsan@qq.com" required>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <input type="button" class="btn btn-primary" id="submit" value="确认">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modifyPasswordModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modifyPasswordModel">修改密码</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/wp-admin/userAdmin/chg-password" method="POST" enctype="multipart/form-data" id="chg-submit-form" readonly="">
+                        <div class="form-group">
+
+                            <div class="form-group">
+                                <label for="password">原密码</label>
+                                <input type="password" class="form-control" id="ori-password" name="ori-password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">新密码</label>
+                                <input type="password" class="form-control" id="new-password" name="new-password" required>
+                            </div>
+                            <input type="hidden" class="form-control" id="chg-username" name="username">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <input type="button" class="btn btn-primary" id="chg-password-submit" value="确认">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--  用户删除模态框  -->
+    <div class="modal fade" id="userDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="userDeleteModalMessage">删除用户</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/wp-admin/userAdmin/delete" method="POST" enctype="multipart/form-data" id="delete-form">
+                    <input type="hidden" class="form-control" id="delete-username" name="username">
+                </div>
+                <div class="modal-body" id="message-body">
+                    是否确认删除该用户
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <input type="button" class="btn btn-primary" id="delete-submit" value="确认">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div layout:fragment="js">
+    <script>
+        // 修改与新增模态框
+        $('#userModifyModel').on('show.bs.modal', function (event){
+            var button = $(event.relatedTarget) ; // Button that triggered the modal
+            var type = button.data("type") ;
+            // 修改按钮
+            if (type != "add"){
+                $(this).find("#submit-form").attr("action", "/wp-admin/userAdmin/modify");
+                var username = button.data("username") ;
+                var nickname = button.data("nickname") ;
+                var firstname = button.data("firstname") ;
+                var lastname = button.data("lastname") ;
+                var email = button.data("email") ;
+                // 添加数据
+                $(this).find("#username").val(username) ;
+                $(this).find("#nickname").val(nickname) ;
+                $(this).find("#firstname").val(firstname) ;
+                $(this).find("#lastname").val(lastname) ;
+                $(this).find("#email").val(email) ;
+                // 设置为只读
+                $(this).find("#username").attr("readonly", "readonly") ;
+            }
+            // 新增按钮
+            else {
+                // 修改标题
+                $(this).find("#userModifyModelMessage").text("新增用户") ;
+                // 修改请求的url
+                $(this).find("#submit-form").attr("action", "/wp-admin/userAdmin/add");
+                // 可编辑
+                document.getElementById("username").readOnly=false ;
+                // 清空数据
+                $(this).find("#username").val("") ;
+                $(this).find("#nickname").val("") ;
+                $(this).find("#firstname").val("") ;
+                $(this).find("#lastname").val("") ;
+                $(this).find("#email").val("") ;
+            }
+
+        });
+    </script>
+
+    <script>
+        // 删除模态框
+        $('#userDeleteModal').on('show.bs.modal', function (event){
+            var button = $(event.relatedTarget) ; // Button that triggered the modal
+            var username = button.data("username") ;
+            //alert(username) ;
+            // 添加用户
+            $(this).find("#delete-username").val(username) ;
+
+        });
+    </script>
+
+    <script>
+        // 修改密码模态框
+        $('#modifyPasswordModel').on('show.bs.modal', function (event){
+            var button = $(event.relatedTarget) ; // Button that triggered the modal
+            var username = button.data("username") ;
+            $(this).find("#chg-username").val(username) ;
+        });
+    </script>
+
+    <script>
+        function message_out(msg){
+            $("#messageModal").find("#message-body").html(msg);
+            $("#messageModal").modal('show');
+        }
+        // 提交修改与新增用户申请
+        $("[id=submit]").click(function(){
+            var data = new FormData($("#submit-form")[0]);
+            // 获取请求url
+            var url =  $("#submit-form").attr("action");
+            //alert(url);
+            $.ajax({
+                type:'post',
+                url:url,  // 你请求的url  需要自己修改哦
+                cache: false,    //上传文件不需缓存
+                processData: false, //需设置为false。因为data值是FormData对象，不需要对数据做处理
+                contentType: false, //需设置为false。因为是FormData对象，且已经声明了属性enctype="multipart/form-data"
+                data:data,  // 表单数据
+                dataType:'json',
+                success:function(data){
+                    var state = data['success'];
+                    if(state == 1){
+                        var info = data['message'];
+                        message_out(info);
+                    }
+                    else if(state == 0){
+                        var info = data['message'];
+                        message_out(info);
+                    }
+                    else{
+                        message_out("服务器返回未知信息");
+                    }
+                },
+                error:function(){
+                    message_out("请求失败");
+                }
+            });
+        });
+       // 删除用户
+        $("[id=delete-submit]").click(function(){
+            var data = new FormData($("#delete-form")[0]);
+            // 获取请求url
+            var url =  $("#delete-form").attr("action");
+            $.ajax({
+                type:'post',
+                url:url,  // 你请求的url  需要自己修改哦
+                cache: false,    //上传文件不需缓存
+                processData: false, //需设置为false。因为data值是FormData对象，不需要对数据做处理
+                contentType: false, //需设置为false。因为是FormData对象，且已经声明了属性enctype="multipart/form-data"
+                data:data,  // 表单数据
+                dataType:'json',
+                success:function(data){
+                    var state = data['success'];
+                    if(state == 1){
+                        var info = data['message'];
+                        message_out(info);
+                    }
+                    else if(state == 0){
+                        var info = data['message'];
+                        message_out(info);
+                    }
+                    else{
+                        message_out("服务器返回未知信息");
+                    }
+                },
+                error:function(){
+                    message_out("请求失败");
+                }
+            });
+        });
+        // 修改密码
+        $("[id=chg-password-submit]").click(function(){
+            var data = new FormData($("#chg-submit-form")[0]);
+            // 获取请求url
+            var url =  $("#chg-submit-form").attr("action");
+            $.ajax({
+                type:'post',
+                url:url,  // 你请求的url  需要自己修改哦
+                cache: false,    //上传文件不需缓存
+                processData: false, //需设置为false。因为data值是FormData对象，不需要对数据做处理
+                contentType: false, //需设置为false。因为是FormData对象，且已经声明了属性enctype="multipart/form-data"
+                data:data,  // 表单数据
+                dataType:'json',
+                success:function(data){
+                    var state = data['success'];
+                    if(state == 1){
+                        var info = data['message'];
+                        message_out(info);
+                    }
+                    else if(state == 0){
+                        var info = data['message'];
+                        message_out(info);
+                    }
+                    else{
+                        message_out("服务器返回未知信息");
+                    }
+                },
+                error:function(){
+                    message_out("请求失败");
+                }
+            });
+        });
+    </script>
+</div>
+
+</html>
