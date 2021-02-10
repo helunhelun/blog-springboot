@@ -98,9 +98,28 @@ public class ArticleController {
         if (article == null){
             return ErrorUtil.error4xx(mv) ;
         }
-        // 浏览量加1
-        article.viewed();
-        articleService.saveArticle(article);
+         // 如果文章状态为草稿
+        if (article.getStatus().equals("d")){
+            String username ;
+            try {
+                username = authentication.getName() ;
+            }
+            catch (Exception e){
+                //debug
+                //System.out.println("该用户没有登录");
+                return  ErrorUtil.error4xx(mv) ;
+            }
+            User curUser = userService.findUserByUsername(username) ;
+            // 判断登录用户是否是文章用户 并不是管理员权限
+            if (!article.getUser().getUsername().equals(username) && !curUser.getIs_stuff()){
+                return  ErrorUtil.error4xx(mv) ;
+            }
+        }
+        else {
+            // 浏览量加1
+            article.viewed();
+            articleService.saveArticle(article);
+        }
         // markdown to html
         article.setBody(MarkdownUtil.markdownExtToHtml(article.getBody()));
         ModelAndView modelAndView = publicSection(mv) ;
