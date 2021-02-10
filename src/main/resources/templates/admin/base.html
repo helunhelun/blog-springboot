@@ -28,18 +28,18 @@
     <div class="container">
         <a class="navbar-brand xiyuan" href="#">
             <p>
-                <em><span style="color: rgb(192, 0, 0); font-size: 36px; font-family: 宋体, SimSun;">博客后台管理系统</span><span style="font-size: 36px;"><span style="color: rgb(192, 0, 0); font-family: 隶书, SimLi;"></span><span style="color: rgb(192,0,0);"></span></span></em>
+                <em><span style="color: rgb(192, 0, 0); font-size: 36px; font-family: 宋体, SimSun;">博客后台管理</span><span style="font-size: 36px;"><span style="color: rgb(192, 0, 0); font-family: 隶书, SimLi;"></span><span style="color: rgb(192,0,0);"></span></span></em>
             </p>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nabmune" aria-controls="nabmune" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="nabmune">
+        <div class="collapse navbar-collapse" id="nabmune">
             <ul class="navbar-nav nav-color ">
-                <li class="nav-item active ">
-                    <a class="nav-link" href="/">首页 <span class="sr-only">(current)</span></a>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">首页</a>
                 </li>
-                <li class="nav-item active ">
+                <li class="nav-item">
                     <a class="nav-link" href="/wp-admin/index">管理首页 <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
@@ -54,6 +54,9 @@
 
                 <li class="nav-item ">
                     <a class="nav-link" href="/wp-admin/ArticleAdmin">文章管理</a>
+                </li>
+                <li class="nav-item " id="userAdminId">
+                    <a class="nav-link" href="/wp-admin/userAdmin">用户管理</a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="/admin/logout">退出系统</a>
@@ -101,7 +104,7 @@
     <div class="foot-nav text-center">
         <div class="copy-right"><span>Copyright © www.example.com </span></div>
         <div class="bottom-nav">
-            <a href="http://www.beian.miit.gov.cn/"><span>津ICP备00000001号</span></a>
+            <a href="https://beian.miit.gov.cn/"><span>津ICP备00000001号</span></a>
         </div>
 
     </div>
@@ -124,7 +127,22 @@
 <div layout:fragment="js">
 
 </div>
+<script>
 
-
+    $(document).ready(function (){
+        // 获取当前用户
+        $.get("/wp-admin/userAdmin/get/username", function(result){
+            var res = result["IsAdmin"];
+            var t = document.getElementById("userAdminId") ;
+            // 非管理员
+            if (res != 1){
+                t.style.display = "none" ;
+            }
+            else {
+                t.style.display = "block" ;
+            }
+        });
+    });
+</script>
 </body>
 </html>
