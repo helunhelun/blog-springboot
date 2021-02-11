@@ -28,13 +28,6 @@
 
                         <span style="color:chocolate" th:if="${article.getStatus()} == 'p' "> 状态：公开 |</span>
                         <span style="color:chocolate" th:if="${article.getStatus()} == 'd' "> 状态：草稿 |</span>
-                        <!--
-                        {% if article.comment_status == "o" %}
-                        <span style="color:deepskyblue"> 评论：打开 </span> |
-                        {% elif article.comment_status == "c" %}
-                        <span style="color:deepskyblue"> 评论：关闭 </span> |
-                        {% endif %}
-                        -->
                         <span style="color:crimson" th:text="'发布时间：'+ ${article.getDate()}"></span>
                     </li>
                 </div>
