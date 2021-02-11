@@ -52,7 +52,7 @@
             </div>
 
             <!-- 分页处理 -->
-            <div style="margin:0 auto;">
+            <div style="margin:0 auto;" th:if="${articlePage.getTotalElements()>0}">
                 <span class="step-links" >
                     <a th:unless="${articlePage.hasPrevious()}" th:href="@{/wp-admin/ArticleAdmin(page=0, post_status=${callStatus})}"> 《上一页</a>
                     <a th:if="${articlePage.hasPrevious()}" th:href="@{/wp-admin/ArticleAdmin(page=${articlePage.previousPageable().getPageNumber()}, post_status=${callStatus})}"> 《上一页</a>
@@ -62,6 +62,7 @@
                     <a th:if="${articlePage.hasNext()}" th:href="@{/wp-admin/ArticleAdmin(page=${articlePage.nextPageable().getPageNumber()}, post_status=${callStatus})}">下一页 》</a>
                 </span>
             </div>
+            <p th:if="${articlePage.getTotalElements()<=0}">你还没有文章，请去写文章发布吧</p>
         </ul>
     </div>
 </div>
